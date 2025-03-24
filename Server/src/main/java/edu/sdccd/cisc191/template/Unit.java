@@ -120,7 +120,8 @@ public class Unit
         }
 
         public int getSpeed()
-        {
+        { int speed = 0;
+
             return speed;
         }
         public void setSpeed(int speed)
@@ -129,7 +130,8 @@ public class Unit
         }
 
         public int getWeight()
-        {
+        { int weight = 0;
+
             return weight;
         }
         public void setWeight(int weight)
@@ -143,6 +145,7 @@ public class Unit
         }
         public void setAbilities(String abilities)
         {
+
             this.abilities = abilities;
         }
 

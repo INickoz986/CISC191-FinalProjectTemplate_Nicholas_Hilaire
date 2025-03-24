@@ -3,6 +3,7 @@ package edu.sdccd.cisc191.template;
 import javafx.geometry.Insets;
 import javafx.scene.control.Label;
 import javafx.scene.layout.VBox;
+import edu.sdccd.cisc191.template.UnitCard;
 
 /**
  * Author Nicholas Hilaire
