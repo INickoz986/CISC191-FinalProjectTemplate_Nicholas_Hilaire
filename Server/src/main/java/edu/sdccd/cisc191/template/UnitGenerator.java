@@ -82,4 +82,7 @@ public class UnitGenerator {
                 }
                 return defaultValue;
             }
+
+    //TODO: Use a logger instead of System.err for error messages.
+    //TODO: Consider using a Map or Enum for unit types to avoid hardcoded strings and improve maintainability.
 }
