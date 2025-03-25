@@ -44,6 +44,7 @@ public class Unit
         //Setter so that the code get the data in the CSV file and translate it to code
         public String getUnitName()
         {
+
             return unitName;
         }
 
@@ -97,6 +98,7 @@ public class Unit
         }
         public void setHealth(int health)
         {
+
             this.health = health;
         }
 
@@ -120,7 +122,8 @@ public class Unit
         }
 
         public int getSpeed()
-        {
+        { int speed = 0;
+
             return speed;
         }
         public void setSpeed(int speed)
@@ -129,7 +132,8 @@ public class Unit
         }
 
         public int getWeight()
-        {
+        { int weight = 0;
+
             return weight;
         }
         public void setWeight(int weight)
@@ -143,6 +147,7 @@ public class Unit
         }
         public void setAbilities(String abilities)
         {
+
             this.abilities = abilities;
         }
 

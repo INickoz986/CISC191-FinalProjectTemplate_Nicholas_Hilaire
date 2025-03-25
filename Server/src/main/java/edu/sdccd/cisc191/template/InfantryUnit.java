@@ -10,7 +10,7 @@ package edu.sdccd.cisc191.template;
 // Infantry class inherits the methods of Unit Class.
 public class InfantryUnit extends Unit
 {
-    private int manpower;
+    private final int manpower;
 
     //Constructor to Initialize the private objects in infantryUnit and Unit class.
     public InfantryUnit(String unitName, String unitType, String specialization, int price, int armor,
@@ -27,6 +27,7 @@ public class InfantryUnit extends Unit
     // Returns the value that is in the CSV file as extra stat.
     public int getManpower()
         {
+
             return manpower;
         }
 
@@ -34,8 +35,11 @@ public class InfantryUnit extends Unit
             @Override
             public String toString()
             {
+                //TODO: Add formatting (e.g., comma separator) between super.toString() and manpower value
+
                 return super.toString() + "manpower= " + manpower;
             }
-
+    //TODO: Implement validation for manpower input (should be positive integer)
+    //TODO: Add method to calculate resupply time based on manpower and weight
 
 }

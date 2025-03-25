@@ -27,7 +27,8 @@ public class Fighter extends Unit
 
         // Returns the value that is in the CSV file as extra stat.
         public int getFuel()
-        {
+
+        { //TODO: Consider adding a label before the fuel value for better readability.
             return fuel;
         }
 
@@ -37,6 +38,8 @@ public class Fighter extends Unit
             {
                 return super.toString() + "fuel= " + fuel;
             }
+
+    //TODO: Add a method to calculate the remaining flight time based on fuel and speed.
 
 
 }

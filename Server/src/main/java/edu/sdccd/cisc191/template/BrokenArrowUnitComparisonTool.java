@@ -52,6 +52,7 @@ public class BrokenArrowUnitComparisonTool extends Application
             @Override
             public String toString(Unit unit)
             {
+
                 return unit == null ? "" : unit.getUnitName();
             }
             @Override
@@ -155,4 +156,9 @@ public class BrokenArrowUnitComparisonTool extends Application
     {
         launch(args);
     }
+
+    //TODO: Add a method to compare selected units and highlight differences
+    //TODO: Implement error handling for CSV file loading
+    //TODO: Add a reset button to clear both panels
+    //TODO: Consider adding a search functionality to filter units in the ComboBoxes
 }
