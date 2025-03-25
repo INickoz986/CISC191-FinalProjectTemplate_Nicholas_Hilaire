@@ -34,7 +34,8 @@ public class Tank extends Unit
             // Method created to change ExtraStat title in CSV to RearArmor and return that corresponding value
             @Override
             public String toString()
-            { //TODO: Add comma separator between super.toString() and RearArmor for consistent CSV formatting
+            {
+                //TODO: Add comma separator between super.toString() and RearArmor for consistent CSV formatting
 
                 return super.toString() + "RearArmor: " + RearArmor;
             }

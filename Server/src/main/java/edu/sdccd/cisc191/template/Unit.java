@@ -44,6 +44,7 @@ public class Unit
         //Setter so that the code get the data in the CSV file and translate it to code
         public String getUnitName()
         {
+
             return unitName;
         }
 
@@ -97,6 +98,7 @@ public class Unit
         }
         public void setHealth(int health)
         {
+
             this.health = health;
         }
 

@@ -29,7 +29,6 @@ public class Fighter extends Unit
         public int getFuel()
 
         { //TODO: Consider adding a label before the fuel value for better readability.
-
             return fuel;
         }
 

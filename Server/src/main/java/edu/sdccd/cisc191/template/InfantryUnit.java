@@ -34,7 +34,8 @@ public class InfantryUnit extends Unit
             // Method created to change ExtraStat title in CSV to manpower and return that corresponding value
             @Override
             public String toString()
-            { //TODO: Add formatting (e.g., comma separator) between super.toString() and manpower value
+            {
+                //TODO: Add formatting (e.g., comma separator) between super.toString() and manpower value
 
                 return super.toString() + "manpower= " + manpower;
             }
