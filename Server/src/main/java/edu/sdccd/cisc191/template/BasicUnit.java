@@ -1,5 +1,7 @@
 package edu.sdccd.cisc191.template;
 
+// Initialized basic unit class to serve as edge case if the unit isn't specified.
+// You could also make the program throw an exception or ignore units that don't have a type specified.
 public class BasicUnit extends Unit {
 
     public BasicUnit(String unitName, String unitType, String specialization, int price, int armor,

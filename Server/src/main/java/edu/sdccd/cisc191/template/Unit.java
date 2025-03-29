@@ -7,8 +7,10 @@ package edu.sdccd.cisc191.template;
  * References: "Bro code: Java: Inheritance" https://www.youtube.com/watch?v=Zs342ePFvRI
  */
 
+// Make the Unit class abstract, since it serves a blueprint for other classes and shouldn't be initialized on its own
 public abstract class Unit
 {
+    // Make all of the fields final because they are never changed after their initialization
     private final String unitName;
     private final String unitType;
     private final String specialization;
@@ -41,6 +43,7 @@ public abstract class Unit
         this.abilities = abilities;
     }
 
+    // Deleted unused setter methods that aren't used and aren't necessary now that the fields are final
         //Setter so that the code get the data in the CSV file and translate it to code
         public String getUnitName()
         {
