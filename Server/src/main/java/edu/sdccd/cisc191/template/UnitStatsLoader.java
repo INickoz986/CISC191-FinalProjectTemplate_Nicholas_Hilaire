@@ -1,6 +1,7 @@
 package edu.sdccd.cisc191.template;
 
 import java.io.*;
+import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -17,22 +18,20 @@ import java.util.List;
 //Class used to access the CSV file and create units with the data from the file.
 public class UnitStatsLoader
 {
-    public static List<Unit> loadUnits(String path)
+    public static List<Unit> loadUnits()
     {
         List<Unit> units = new ArrayList<>();
 
-        File file = new File(path);
-        // Try to locate the file in the given path or in src/main/resources/
-        if (!file.exists())
-        {
-            file = new File("C:\\Users\\Nicko\\IdeaProjects\\CISC191-FinalProjectTemplate\\Server\\src\\main\\resources" + path);
+        // Updated: use the resources folder so that the project works across computers instead of hardcoding the file path
+        URL resource = UnitStatsLoader.class.getResource("/Stats.csv");
 
-        // If file is not found will ensure the correct path is used.
+        File file = null;
+        if (resource != null) {
+            file = new File(resource.getPath());
         }
         if (!file.exists())
         {
-            System.err.println("File not found: " + path);
-            return units;
+            System.err.println("File not found: " + resource.getPath());
         }
 
         /* Allows the code to gather data in a buffer and then read text in from a character input stream that takes in the file object that is declared
@@ -69,7 +68,9 @@ public class UnitStatsLoader
                         {
                             System.err.println("Error parsing stats: " + line);
                             e.printStackTrace();
-                        }
+                        } catch (Exception e) {
+                        throw new RuntimeException(e);
+                    }
             }
         }
 
@@ -87,4 +88,5 @@ public class UnitStatsLoader
 
         return units;
     }
+
 }
