@@ -21,12 +21,10 @@ public class Unit
     private int weight;
     private String abilities;
 
-
-    //  Constructor to Initialize the private objects in the Unit class.
+    // Constructor to Initialize the private objects in the Unit class.
     public Unit(String unitName, String unitType, String specialization, int price, int armor,
                 int health, int sightRange, double unseenRange, int speed,
                 int weight, String abilities)
-
     {
         this.unitName = unitName;
         this.unitType = unitType;
@@ -41,130 +39,134 @@ public class Unit
         this.abilities = abilities;
     }
 
-        //Setter so that the code get the data in the CSV file and translate it to code
-        public String getUnitName()
-        {
-            return unitName;
-        }
+    // TODO: Add validation to ensure input data is correct (e.g., non-negative values for price, armor, etc.)
+    public String getUnitName()
+    {
+        return unitName;
+    }
 
-        public void setUnitName(String unitName)
-        {
-            this.unitName = unitName;
-        }
+    public void setUnitName(String unitName)
+    {
+        this.unitName = unitName;
+    }
 
-        public String getUnitType()
-        {
-            return unitType;
-        }
+    public String getUnitType()
+    {
+        return unitType;
+    }
 
-        public void setUnitType(String unitType)
-        {
-            this.unitType = unitType;
-        }
+    public void setUnitType(String unitType)
+    {
+        this.unitType = unitType;
+    }
 
-        public String getSpecialization()
-        {
-            return specialization;
-        }
+    // TODO: Ensure proper handling of empty or null abilities
+    public String getSpecialization()
+    {
+        return specialization;
+    }
 
-        public void setSpecialization(String specialization)
-        {
-            this.specialization = specialization;
-        }
+    public void setSpecialization(String specialization)
+    {
+        this.specialization = specialization;
+    }
 
-        public int getPrice()
-        {
-            return price;
-        }
+    public int getPrice()
+    {
+        return price;
+    }
 
-        public void setPrice(int price)
-        {
-            this.price = price;
-        }
+    public void setPrice(int price)
+    {
+        this.price = price;
+    }
 
-        public int getArmor()
-        {
-            return armor;
-        }
-        public void setArmor(int armor)
-        {
-            this.armor = armor;
-        }
+    public int getArmor()
+    {
+        return armor;
+    }
 
-        public int getHealth()
-        {
-            return health;
-        }
-        public void setHealth(int health)
-        {
-            this.health = health;
-        }
+    public void setArmor(int armor)
+    {
+        this.armor = armor;
+    }
 
-        public int getSightRange()
-        {
-            return sightRange;
-        }
+    public int getHealth()
+    {
+        return health;
+    }
 
-        public void setSightRange(int sightRange)
-        {
-            this.sightRange = sightRange;
-        }
+    public void setHealth(int health)
+    {
+        this.health = health;
+    }
 
-        public double getUnseenRange()
-        {
-            return unseenRange;
-        }
-        public void setUnseenRange(double unseenRange)
-        {
-            this.unseenRange = unseenRange;
-        }
+    public int getSightRange()
+    {
+        return sightRange;
+    }
 
-        public int getSpeed()
-        {
-            return speed;
-        }
-        public void setSpeed(int speed)
-        {
-            this.speed = speed;
-        }
+    public void setSightRange(int sightRange)
+    {
+        this.sightRange = sightRange;
+    }
 
-        public int getWeight()
-        {
-            return weight;
-        }
-        public void setWeight(int weight)
-        {
-            this.weight = weight;
-        }
+    public double getUnseenRange()
+    {
+        return unseenRange;
+    }
 
-        public String getAbilities()
-        {
-            return abilities;
-        }
-        public void setAbilities(String abilities)
-        {
-            this.abilities = abilities;
-        }
+    public void setUnseenRange(double unseenRange)
+    {
+        this.unseenRange = unseenRange;
+    }
 
+    public int getSpeed()
+    {
+        return speed;
+    }
 
-        // Takes the previous get Methods and translates the data into the specific unit stat.
-            @Override
-            public String toString()
-            {
-                return "Unit{" +
-                        "unitName='" + unitName + '\'' +
-                        ", unitType='" + unitType + '\'' +
-                        ", specialization='" + specialization + '\'' +
-                        ", price=" + price +
-                        ", armor=" + armor +
-                        ", health=" + health +
-                        ", sightRange=" + sightRange +
-                        ", unseenRange=" + unseenRange +
-                        ", speed=" + speed +
-                        ", weight=" + weight +
-                        ", abilities='" + abilities + '\'' +
-                        '}';
-            }
+    public void setSpeed(int speed)
+    {
+        this.speed = speed;
+    }
 
+    public int getWeight()
+    {
+        return weight;
+    }
+
+    public void setWeight(int weight)
+    {
+        this.weight = weight;
+    }
+
+    public String getAbilities()
+    {
+        return abilities;
+    }
+
+    public void setAbilities(String abilities)
+    {
+        this.abilities = abilities;
+    }
+
+    // Takes the previous get Methods and translates the data into the specific unit stat.
+    @Override
+    public String toString()
+    {
+        return "Unit{" +
+                "unitName='" + unitName + '\'' +
+                ", unitType='" + unitType + '\'' +
+                ", specialization='" + specialization + '\'' +
+                ", price=" + price +
+                ", armor=" + armor +
+                ", health=" + health +
+                ", sightRange=" + sightRange +
+                ", unseenRange=" + unseenRange +
+                ", speed=" + speed +
+                ", weight=" + weight +
+                ", abilities='" + abilities + '\'' +
+                '}';
+    }
 }
-
