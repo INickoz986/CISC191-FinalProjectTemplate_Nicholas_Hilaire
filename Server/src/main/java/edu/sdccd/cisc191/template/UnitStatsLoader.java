@@ -13,7 +13,6 @@ import java.util.List;
  *
  */
 
-
 //Class used to access the CSV file and create units with the data from the file.
 public class UnitStatsLoader
 {
@@ -26,8 +25,6 @@ public class UnitStatsLoader
         if (!file.exists())
         {
             file = new File("C:\\Users\\Nicko\\IdeaProjects\\CISC191-FinalProjectTemplate\\Server\\src\\main\\resources" + path);
-
-        // If file is not found will ensure the correct path is used.
         }
         if (!file.exists())
         {
@@ -58,22 +55,21 @@ public class UnitStatsLoader
                     stats[i] = stats[i].trim();
                 }
 
-                    //Uses the methods from UnitGenerator that creates an Unit object
-                    try
-                    {
-                        Unit unit = UnitGenerator.createUnit(stats);
-                        units.add(unit);
-                    }
-
-                        catch (NumberFormatException e)
-                        {
-                            System.err.println("Error parsing stats: " + line);
-                            e.printStackTrace();
-                        }
+                // Uses the methods from UnitGenerator that creates a Unit object
+                try
+                {
+                    Unit unit = UnitGenerator.createUnit(stats);
+                    units.add(unit);
+                }
+                catch (NumberFormatException e)
+                {
+                    System.err.println("Error parsing stats: " + line);
+                    e.printStackTrace();
+                }
             }
         }
 
-        //Handles any errors if the file is not found
+        // Handles any errors if the file is not found
         catch (FileNotFoundException e)
         {
             throw new RuntimeException(e);
