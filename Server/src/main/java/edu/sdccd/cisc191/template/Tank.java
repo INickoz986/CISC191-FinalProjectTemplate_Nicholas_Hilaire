@@ -7,6 +7,8 @@ package edu.sdccd.cisc191.template;
  * References: "Bro code: Java: Inheritance" https://www.youtube.com/watch?v=Zs342ePFvRI
  */
 
+//TODO: Use camelCase by change "RearArmor" to "rearArmor"
+
 // Tank class inherits the methods of Unit Class.
 public class Tank extends Unit
 {

@@ -7,19 +7,21 @@ package edu.sdccd.cisc191.template;
  * References: "Bro code: Java: Inheritance" https://www.youtube.com/watch?v=Zs342ePFvRI
  */
 
+//TODO: make this class abstract as it serves as the foundation for other classes
 public class Unit
 {
-    private String unitName;
-    private String unitType;
-    private String specialization;
-    private int price;
-    private int armor;
-    private int health;
-    private int sightRange;
-    private double unseenRange;
-    private int speed;
-    private int weight;
-    private String abilities;
+    // These fields should be final because they are never changed
+    private final String unitName;
+    private final String unitType;
+    private final String specialization;
+    private final int price;
+    private final int armor;
+    private final int health;
+    private final int sightRange;
+    private final double unseenRange;
+    private final int speed;
+    private final int weight;
+    private final String abilities;
 
 
     //  Constructor to Initialize the private objects in the Unit class.
@@ -41,25 +43,16 @@ public class Unit
         this.abilities = abilities;
     }
 
-        //Setter so that the code get the data in the CSV file and translate it to code
+        //Removed the unnecessary setters now that the fields are final
         public String getUnitName()
         {
             return unitName;
         }
 
-        public void setUnitName(String unitName)
-        {
-            this.unitName = unitName;
-        }
 
         public String getUnitType()
         {
             return unitType;
-        }
-
-        public void setUnitType(String unitType)
-        {
-            this.unitType = unitType;
         }
 
         public String getSpecialization()
@@ -67,37 +60,20 @@ public class Unit
             return specialization;
         }
 
-        public void setSpecialization(String specialization)
-        {
-            this.specialization = specialization;
-        }
 
         public int getPrice()
         {
             return price;
         }
 
-        public void setPrice(int price)
-        {
-            this.price = price;
-        }
-
         public int getArmor()
         {
             return armor;
-        }
-        public void setArmor(int armor)
-        {
-            this.armor = armor;
         }
 
         public int getHealth()
         {
             return health;
-        }
-        public void setHealth(int health)
-        {
-            this.health = health;
         }
 
         public int getSightRange()
@@ -105,48 +81,28 @@ public class Unit
             return sightRange;
         }
 
-        public void setSightRange(int sightRange)
-        {
-            this.sightRange = sightRange;
-        }
-
         public double getUnseenRange()
         {
             return unseenRange;
-        }
-        public void setUnseenRange(double unseenRange)
-        {
-            this.unseenRange = unseenRange;
         }
 
         public int getSpeed()
         {
             return speed;
         }
-        public void setSpeed(int speed)
-        {
-            this.speed = speed;
-        }
 
         public int getWeight()
         {
             return weight;
-        }
-        public void setWeight(int weight)
-        {
-            this.weight = weight;
         }
 
         public String getAbilities()
         {
             return abilities;
         }
-        public void setAbilities(String abilities)
-        {
-            this.abilities = abilities;
-        }
 
-
+    // TODO: Implement abstract methods in subclasses if necessary
+        // Example: public abstract void specialAbility();
         // Takes the previous get Methods and translates the data into the specific unit stat.
             @Override
             public String toString()

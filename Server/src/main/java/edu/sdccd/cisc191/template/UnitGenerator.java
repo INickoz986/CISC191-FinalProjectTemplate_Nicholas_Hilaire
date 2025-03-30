@@ -36,6 +36,7 @@ public class UnitGenerator {
         int extra = parseIntSafe(stats, 11, 0); //List the Extra stats that are associated  with its unit type
 
             // Based on the unit type (category), create the appropriate unit object.
+            //TODO: Consider a cleaner approach by using a switch statement
             if (unitType.equalsIgnoreCase("Tank"))
             {
                 return new Tank(unitName, unitType, specialization, price, armor, health, sightRange, unseenRange, speed, weight, abilities, extra);
