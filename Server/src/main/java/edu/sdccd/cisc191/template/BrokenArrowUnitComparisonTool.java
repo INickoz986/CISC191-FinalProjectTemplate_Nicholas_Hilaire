@@ -38,7 +38,9 @@ public class BrokenArrowUnitComparisonTool extends Application
     public void start(Stage primaryStage)
     {
         // Load units from CSV (ensure the path is correct)
-        unitList = UnitStatsLoader.loadUnits("C:\\Users\\Nicko\\IdeaProjects\\CISC191-FinalProjectTemplate\\Server\\src\\main\\resources\\Broken Arrow Unit Stats.csv");
+        // Use relative path so you can ensure the user won't have to change the path if they are downloading your release. - Andy Ly
+        // TODO: Consider adding using java.URL to make sure the path works cross-platform - Andy Ly
+        unitList = UnitStatsLoader.loadUnits("Server/src/main/resources/Broken Arrow Unit Stats.csv");
         System.out.println("Units loaded: " + unitList.size());
 
         // Create ComboBoxes and populate them with units

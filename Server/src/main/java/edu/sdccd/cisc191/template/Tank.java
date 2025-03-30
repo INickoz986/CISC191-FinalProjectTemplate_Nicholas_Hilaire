@@ -25,6 +25,7 @@ public class Tank extends Unit
     }
 
         // Returns the value that is in the CSV file as extra stat.
+        //TODO: Consider displaying these stats - Andy Ly
         public int getRearArmor()
         {
             return RearArmor;
