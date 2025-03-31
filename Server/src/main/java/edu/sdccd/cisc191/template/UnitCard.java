@@ -40,7 +40,7 @@ public class UnitCard extends VBox
 
         // Generates the Strings to label the data types from Unit class to display on applicaiton.
         public void setUnit(Unit unit)
-        {
+        { // TODO: Consider adding null checks for unit methods to avoid potential issues if unit properties are missing
             unitNameLabel.setText(unit.getUnitName());
             unitTypeLabel.setText("Type: " + unit.getUnitType());
             specializationLabel.setText("Spec: " + unit.getSpecialization());
