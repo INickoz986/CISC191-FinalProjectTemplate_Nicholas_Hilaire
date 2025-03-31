@@ -18,25 +18,25 @@ public class Fighter extends Unit
                    int health, int sightRange, double unseenRange, int speed,
                    int weight, String abilities, int fuel)
     {
-        // Inheretence so InfantryUnit Class can inherent and actually utilize the methods from the Unit super class.
+        // TODO: Make sure the fuel value is being set correctly
         super (unitName, unitType, specialization, price, armor, health, sightRange, unseenRange,speed, weight, abilities);
 
         //Setters created to set the value of the variable in the InfantryUnit Class
         this.fuel = fuel;
     }
 
-        // Returns the value that is in the CSV file as extra stat.
-        public int getFuel()
-        {
-            return fuel;
-        }
+    // Returns the value that is in the CSV file as extra stat.
+    public int getFuel()
+    {
+        return fuel;
+    }
 
-            // Method created to change ExtraStat title in CSV to fuel and return that corresponding value
-            @Override
-            public String toString()
-            {
-                return super.toString() + "fuel= " + fuel;
-            }
-
+    // Method created to change ExtraStat title in CSV to fuel and return that corresponding value
+    @Override
+    public String toString()
+    {
+        // TODO: Check if the fuel is displayed correctly in the string
+        return super.toString() + "fuel= " + fuel;
+    }
 
 }

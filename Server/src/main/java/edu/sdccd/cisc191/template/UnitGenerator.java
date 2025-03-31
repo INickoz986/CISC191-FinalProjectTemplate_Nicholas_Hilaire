@@ -15,13 +15,13 @@ public class UnitGenerator {
 
     public static Unit createUnit(String[] stats)
     {
-        // Loops through all the lines in the CSV file and removes extra lines from strings.
+        // TODO: Clean up each stat value to remove extra quotes and spaces.
         for (int i = 0; i < stats.length; i++)
         {
             stats[i] = stats[i].replaceAll("\"", "").trim();
         }
 
-        // Gets the units information from the CSV file scanning each data inputs legenth and assigning it to a specific stat
+        // TODO: Read the stats and assign them to variables correctly.
         String unitType = stats.length > 0 ? stats[0] : "";  //Displays the Unit's type
         String unitName = stats.length > 1 ? stats[1] : "";  //Displays the Unit's Name
         String specialization = stats.length > 2 ? stats[2] : "";  //Displays the Unit's Specilaization
@@ -35,51 +35,51 @@ public class UnitGenerator {
         String abilities = stats.length > 10 ? stats[10] : ""; //Lists its abilities
         int extra = parseIntSafe(stats, 11, 0); //List the Extra stats that are associated  with its unit type
 
-            // Based on the unit type (category), create the appropriate unit object.
-            if (unitType.equalsIgnoreCase("Tank"))
-            {
-                return new Tank(unitName, unitType, specialization, price, armor, health, sightRange, unseenRange, speed, weight, abilities, extra);
-            }
+        // TODO: Create the correct type of unit based on the unitType.
+        if (unitType.equalsIgnoreCase("Tank"))
+        {
+            return new Tank(unitName, unitType, specialization, price, armor, health, sightRange, unseenRange, speed, weight, abilities, extra);
+        }
 
-            else if (unitType.equalsIgnoreCase("Fighter"))
-            {
-                return new Fighter(unitName, unitType, specialization, price, armor, health, sightRange, unseenRange, speed, weight, abilities, extra);
-            }
+        else if (unitType.equalsIgnoreCase("Fighter"))
+        {
+            return new Fighter(unitName, unitType, specialization, price, armor, health, sightRange, unseenRange, speed, weight, abilities, extra);
+        }
 
-            else if (unitType.equalsIgnoreCase("Infantry"))
-            {
-                return new InfantryUnit(unitName, unitType, specialization, price, armor, health, sightRange, unseenRange, speed, weight, abilities, extra);
-            }
+        else if (unitType.equalsIgnoreCase("Infantry"))
+        {
+            return new InfantryUnit(unitName, unitType, specialization, price, armor, health, sightRange, unseenRange, speed, weight, abilities, extra);
+        }
 
-            else
-            {
-                // Default to a basic Unit if category not recognized
-                return new Unit(unitName, unitType, specialization, price, armor, health, sightRange, unseenRange, speed, weight, abilities);
-            }
+        else
+        {
+            // Default to a basic Unit if category not recognized
+            return new Unit(unitName, unitType, specialization, price, armor, health, sightRange, unseenRange, speed, weight, abilities);
+        }
     }
 
-            // Helper method to space an integer safely
-            private static int parseIntSafe(String[] stats, int index, int defaultValue)
-            {
-                if (stats.length > index && !stats[index].isEmpty()) {
-                    try {
-                        return Integer.parseInt(stats[index]);
-                    } catch (NumberFormatException e) {
-                        System.err.println("Failed to parse integer at index " + index + ": " + stats[index]);
-                    }
-                }
-                return defaultValue;
+    // TODO: Handle safely converting a string to an integer and return a default value if it fails.
+    private static int parseIntSafe(String[] stats, int index, int defaultValue)
+    {
+        if (stats.length > index && !stats[index].isEmpty()) {
+            try {
+                return Integer.parseInt(stats[index]);
+            } catch (NumberFormatException e) {
+                System.err.println("Failed to parse integer at index " + index + ": " + stats[index]);
             }
+        }
+        return defaultValue;
+    }
 
-            // Helper method to space a double safely
-            private static double parseDoubleSafe(String[] stats, int index, double defaultValue) {
-                if (stats.length > index && !stats[index].isEmpty()) {
-                    try {
-                        return Double.parseDouble(stats[index]);
-                    } catch (NumberFormatException e) {
-                        System.err.println("Failed to parse double at index " + index + ": " + stats[index]);
-                    }
-                }
-                return defaultValue;
+    // TODO: Handle safely converting a string to a double and return a default value if it fails.
+    private static double parseDoubleSafe(String[] stats, int index, double defaultValue) {
+        if (stats.length > index && !stats[index].isEmpty()) {
+            try {
+                return Double.parseDouble(stats[index]);
+            } catch (NumberFormatException e) {
+                System.err.println("Failed to parse double at index " + index + ": " + stats[index]);
             }
+        }
+        return defaultValue;
+    }
 }

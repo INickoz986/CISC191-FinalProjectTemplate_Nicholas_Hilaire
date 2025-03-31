@@ -26,16 +26,18 @@ public class InfantryUnit extends Unit
 
     // Returns the value that is in the CSV file as extra stat.
     public int getManpower()
-        {
-            return manpower;
-        }
+    {
+        return manpower;
+    }
 
-            // Method created to change ExtraStat title in CSV to manpower and return that corresponding value
-            @Override
-            public String toString()
-            {
-                return super.toString() + "manpower= " + manpower;
-            }
+    // TODO: Add validation to ensure manpower is a positive number.
+    // TODO: Check if the `manpower` value is not null or invalid before using it.
+    // Method created to change ExtraStat title in CSV to manpower and return that corresponding value
+    @Override
+    public String toString()
+    {
+        return super.toString() + "manpower= " + manpower;
+    }
 
-
+    // TODO: Test the toString method to ensure it formats the output correctly.
 }

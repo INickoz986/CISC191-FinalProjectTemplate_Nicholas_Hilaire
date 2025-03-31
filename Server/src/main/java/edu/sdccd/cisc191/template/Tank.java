@@ -24,18 +24,20 @@ public class Tank extends Unit
         this.RearArmor = RearArmor;
     }
 
-        // Returns the value that is in the CSV file as extra stat.
-        public int getRearArmor()
-        {
-            return RearArmor;
-        }
+    // Returns the value that is in the CSV file as extra stat.
+    public int getRearArmor()
+    {
+        return RearArmor;
+    }
 
-            // Method created to change ExtraStat title in CSV to RearArmor and return that corresponding value
-            @Override
-            public String toString()
-            {
-                return super.toString() + "RearArmor: " + RearArmor;
-            }
+    // TODO: Check if RearArmor is greater than 0 before setting it, to avoid invalid values.
+    // TODO: Maybe create a method to compare RearArmor with other tank units.
+    // Method created to change ExtraStat title in CSV to RearArmor and return that corresponding value
+    @Override
+    public String toString()
+    {
+        return super.toString() + "RearArmor: " + RearArmor;
+    }
 
-
+    // TODO: Test the `toString()` method to make sure it returns the correct string for the rear armor.
 }

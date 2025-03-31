@@ -1,4 +1,3 @@
-
 package edu.sdccd.cisc191.template;
 
 import javafx.application.Application;
@@ -37,9 +36,11 @@ public class BrokenArrowUnitComparisonTool extends Application
     @Override
     public void start(Stage primaryStage)
     {
-        // Load units from CSV (ensure the path is correct)
+        // TODO: Add error handling in case the CSV file path is wrong or the file doesn't exist
         unitList = UnitStatsLoader.loadUnits("C:\\Users\\Nicko\\IdeaProjects\\CISC191-FinalProjectTemplate\\Server\\src\\main\\resources\\Broken Arrow Unit Stats.csv");
         System.out.println("Units loaded: " + unitList.size());
+
+        // TODO: If unitList is empty, show a message to the user that no units were loaded
 
         // Create ComboBoxes and populate them with units
         leftComboBox = new ComboBox<>();
@@ -61,7 +62,6 @@ public class BrokenArrowUnitComparisonTool extends Application
             }
         };
 
-
         leftComboBox.setConverter(converter);
         rightComboBox.setConverter(converter);
 
@@ -69,7 +69,7 @@ public class BrokenArrowUnitComparisonTool extends Application
         leftPanel = createUnitDetailPanel();
         rightPanel = createUnitDetailPanel();
 
-        // When a selection changes, update the corresponding panel
+        // TODO: When a selection is made, make sure the corresponding panel updates with the correct details
         leftComboBox.setOnAction(e -> updatePanel(leftPanel, leftComboBox.getValue()));
         rightComboBox.setOnAction(e -> updatePanel(rightPanel, rightComboBox.getValue()));
 
@@ -88,8 +88,7 @@ public class BrokenArrowUnitComparisonTool extends Application
         root.setTop(topControls);
         root.setCenter(panelsContainer);
 
-
-        // Sets the UI to display unit as cards shapes in side by side panel.
+        // TODO: Check if the window is too small for all the content. Consider resizing or adding scrollbars
         Scene scene = new Scene(root, 800, 600);
         primaryStage.setTitle("Unit Comparison (No Image)");
         primaryStage.setScene(scene);
@@ -121,7 +120,10 @@ public class BrokenArrowUnitComparisonTool extends Application
     // Updates the provided panel with data from the selected unit
     private void updatePanel(VBox panel, Unit unit)
     {
-        if (unit == null) return;
+        if (unit == null) {
+            // TODO: Add a message to show that the unit is not selected
+            return;
+        }
         PanelComponents comps = (PanelComponents) panel.getUserData();
         comps.nameLabel.setText("Name: " + unit.getUnitName());
         comps.typeLabel.setText("Type: " + unit.getUnitType());

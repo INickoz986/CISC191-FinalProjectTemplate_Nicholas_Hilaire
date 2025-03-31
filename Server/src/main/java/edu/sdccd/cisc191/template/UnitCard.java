@@ -38,14 +38,16 @@ public class UnitCard extends VBox
         getChildren().addAll(unitNameLabel, unitTypeLabel, specializationLabel, statsLabel, abilitiesLabel);
     }
 
-        // Generates the Strings to label the data types from Unit class to display on applicaiton.
-        public void setUnit(Unit unit)
-        {
-            unitNameLabel.setText(unit.getUnitName());
-            unitTypeLabel.setText("Type: " + unit.getUnitType());
-            specializationLabel.setText("Spec: " + unit.getSpecialization());
-            statsLabel.setText("Price: " + unit.getPrice() + " | Armor: " + unit.getArmor() +
-                    " | Health: " + unit.getHealth());
-            abilitiesLabel.setText("Abilities: " + unit.getAbilities());
-        }
+    // TODO: Add a check to make sure the unit is not null before updating the labels.
+    // TODO: Change the font or colors to make the text easier to read.
+    // TODO: Add some extra information or tips to each label to explain the stats better.
+    public void setUnit(Unit unit)
+    {
+        unitNameLabel.setText(unit.getUnitName());
+        unitTypeLabel.setText("Type: " + unit.getUnitType());
+        specializationLabel.setText("Spec: " + unit.getSpecialization());
+        statsLabel.setText("Price: " + unit.getPrice() + " | Armor: " + unit.getArmor() +
+                " | Health: " + unit.getHealth());
+        abilitiesLabel.setText("Abilities: " + unit.getAbilities());
+    }
 }
