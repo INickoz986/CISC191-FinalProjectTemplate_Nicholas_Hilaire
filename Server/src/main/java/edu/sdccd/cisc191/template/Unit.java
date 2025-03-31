@@ -40,7 +40,7 @@ public class Unit
         this.weight = weight;
         this.abilities = abilities;
     }
-
+        // Consider removing unused setters - Andy Ly
         //Setter so that the code get the data in the CSV file and translate it to code
         public String getUnitName()
         {
