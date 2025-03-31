@@ -23,6 +23,7 @@ public class UnitStatsLoader
 
         File file = new File(path);
         // Try to locate the file in the given path or in src/main/resources/
+        // TODO: Instead of hardcoding the path, consider using a more flexible approach to locate the file (e.g., use relative paths or environment variables).
         if (!file.exists())
         {
             file = new File("C:\\Users\\Nicko\\IdeaProjects\\CISC191-FinalProjectTemplate\\Server\\src\\main\\resources" + path);
