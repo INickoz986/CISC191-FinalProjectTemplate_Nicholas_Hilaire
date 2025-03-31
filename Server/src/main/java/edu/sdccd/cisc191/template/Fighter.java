@@ -11,7 +11,7 @@ package edu.sdccd.cisc191.template;
 // Fighter class inherits the methods of Unit Class.
 public class Fighter extends Unit
 {
-    private int fuel;
+    private int fuel; // TODO: Consider adding a comment explaining that fuel is a stat for the fighter.
 
     //Constructor to Initialize the private objects in infantryUnit and Unit class.
     public Fighter(String unitName, String unitType, String specialization, int price, int armor,
@@ -28,13 +28,14 @@ public class Fighter extends Unit
         // Returns the value that is in the CSV file as extra stat.
         public int getFuel()
         {
-            return fuel;
+            return fuel; // TODO: Maybe add validation to check if fuel is negative or invalid.
         }
 
             // Method created to change ExtraStat title in CSV to fuel and return that corresponding value
+    // TODO: In the toString method, it may be better to format the output more clearly, like adding spaces or separators for readability.
             @Override
             public String toString()
-            {
+            { // TODO: Add space after "fuel=" for better formatting: "fuel = " + fuel
                 return super.toString() + "fuel= " + fuel;
             }
 
