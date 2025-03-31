@@ -45,7 +45,7 @@ public class ServerTest
     @Test
     public void TestIOStream()
     {
-        List<Unit> units = UnitStatsLoader.loadUnits("C:\\Users\\Nicko\\IdeaProjects\\CISC191-FinalProjectTemplate\\Server\\src\\main\\resources\\Broken Arrow Unit Stats.csv");
+        List<Unit> units = UnitStatsLoader.loadUnits();
         assertFalse(units.isEmpty());
     }
 
@@ -59,5 +59,6 @@ public class ServerTest
             Unit testUnit = new Unit("Test Unit", "Infantry", "Test Specialization", 100, 10, 100, 500, 1.5, 20, 2000, "Test Abilities");
 
         }
+
 
 }

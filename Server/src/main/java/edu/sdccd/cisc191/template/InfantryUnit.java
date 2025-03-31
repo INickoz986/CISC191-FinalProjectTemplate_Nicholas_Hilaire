@@ -7,6 +7,8 @@ package edu.sdccd.cisc191.template;
  * References: "Bro code: Java: Inheritance" https://www.youtube.com/watch?v=Zs342ePFvRI
  */
 
+//TODO: Fix variable name using camelCase
+
 // Infantry class inherits the methods of Unit Class.
 public class InfantryUnit extends Unit
 {
