@@ -87,4 +87,7 @@ public class UnitStatsLoader
 
         return units;
     }
+    //TODO: Add a method to validate the data read from the CSV file.
+    //TODO: Use a logger instead of System.err for printing error messages.
+    //TODO: Handle the case where the CSV file is empty.
 }

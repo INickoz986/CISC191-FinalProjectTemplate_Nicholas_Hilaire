@@ -26,7 +26,8 @@ public class Tank extends Unit
 
         // Returns the value that is in the CSV file as extra stat.
         public int getRearArmor()
-        {
+        { int RearArmor = this.RearArmor;
+
             return RearArmor;
         }
 
@@ -34,8 +35,12 @@ public class Tank extends Unit
             @Override
             public String toString()
             {
+                //TODO: Add comma separator between super.toString() and RearArmor for consistent CSV formatting
+
                 return super.toString() + "RearArmor: " + RearArmor;
             }
+
+    //TODO: Fix variable naming convention - 'RearArmor' should follow camelCase (rearArmor)
 
 
 }
