@@ -7,6 +7,7 @@ package edu.sdccd.cisc191.template;
  * References: "Bro code: Java: Inheritance" https://www.youtube.com/watch?v=Zs342ePFvRI
  */
 
+// TODO (Module 3): Made abstract to enforce subclass implementation
 public class Unit
 {
     private String unitName;
@@ -41,130 +42,131 @@ public class Unit
         this.abilities = abilities;
     }
 
-        //Setter so that the code get the data in the CSV file and translate it to code
-        public String getUnitName()
-        {
-            return unitName;
-        }
+    //Setter so that the code get the data in the CSV file and translate it to code
+    public String getUnitName()
+    {
+        return unitName;
+    }
 
-        public void setUnitName(String unitName)
-        {
-            this.unitName = unitName;
-        }
+    public void setUnitName(String unitName)
+    {
+        this.unitName = unitName;
+    }
 
-        public String getUnitType()
-        {
-            return unitType;
-        }
+    public String getUnitType()
+    {
+        return unitType;
+    }
 
-        public void setUnitType(String unitType)
-        {
-            this.unitType = unitType;
-        }
+    public void setUnitType(String unitType)
+    {
+        this.unitType = unitType;
+    }
 
-        public String getSpecialization()
-        {
-            return specialization;
-        }
+    public String getSpecialization()
+    {
+        return specialization;
+    }
 
-        public void setSpecialization(String specialization)
-        {
-            this.specialization = specialization;
-        }
+    public void setSpecialization(String specialization)
+    {
+        this.specialization = specialization;
+    }
 
-        public int getPrice()
-        {
-            return price;
-        }
+    public int getPrice()
+    {
+        return price;
+    }
 
-        public void setPrice(int price)
-        {
-            this.price = price;
-        }
+    public void setPrice(int price)
+    {
+        this.price = price;
+    }
 
-        public int getArmor()
-        {
-            return armor;
-        }
-        public void setArmor(int armor)
-        {
-            this.armor = armor;
-        }
+    public int getArmor()
+    {
+        return armor;
+    }
+    public void setArmor(int armor)
+    {
+        this.armor = armor;
+    }
 
-        public int getHealth()
-        {
-            return health;
-        }
-        public void setHealth(int health)
-        {
-            this.health = health;
-        }
+    public int getHealth()
+    {
+        return health;
+    }
+    public void setHealth(int health)
+    {
+        this.health = health;
+    }
 
-        public int getSightRange()
-        {
-            return sightRange;
-        }
+    public int getSightRange()
+    {
+        return sightRange;
+    }
 
-        public void setSightRange(int sightRange)
-        {
-            this.sightRange = sightRange;
-        }
+    public void setSightRange(int sightRange)
+    {
+        this.sightRange = sightRange;
+    }
 
-        public double getUnseenRange()
-        {
-            return unseenRange;
-        }
-        public void setUnseenRange(double unseenRange)
-        {
-            this.unseenRange = unseenRange;
-        }
+    public double getUnseenRange()
+    {
+        return unseenRange;
+    }
+    public void setUnseenRange(double unseenRange)
+    {
+        this.unseenRange = unseenRange;
+    }
 
-        public int getSpeed()
-        {
-            return speed;
-        }
-        public void setSpeed(int speed)
-        {
-            this.speed = speed;
-        }
+    public int getSpeed()
+    {
+        return speed;
+    }
+    public void setSpeed(int speed)
+    {
+        this.speed = speed;
+    }
 
-        public int getWeight()
-        {
-            return weight;
-        }
-        public void setWeight(int weight)
-        {
-            this.weight = weight;
-        }
+    public int getWeight()
+    {
+        return weight;
+    }
+    public void setWeight(int weight)
+    {
+        this.weight = weight;
+    }
 
-        public String getAbilities()
-        {
-            return abilities;
-        }
-        public void setAbilities(String abilities)
-        {
-            this.abilities = abilities;
-        }
+    public String getAbilities()
+    {
+        return abilities;
+    }
+    public void setAbilities(String abilities)
+    {
+        this.abilities = abilities;
+    }
 
 
-        // Takes the previous get Methods and translates the data into the specific unit stat.
-            @Override
-            public String toString()
-            {
-                return "Unit{" +
-                        "unitName='" + unitName + '\'' +
-                        ", unitType='" + unitType + '\'' +
-                        ", specialization='" + specialization + '\'' +
-                        ", price=" + price +
-                        ", armor=" + armor +
-                        ", health=" + health +
-                        ", sightRange=" + sightRange +
-                        ", unseenRange=" + unseenRange +
-                        ", speed=" + speed +
-                        ", weight=" + weight +
-                        ", abilities='" + abilities + '\'' +
-                        '}';
-            }
+    // TODO (Module 6): Add method saveToStream(OutputStream out) to write unit data
+    // Takes the previous get Methods and translates the data into the specific unit stat.
+    @Override
+    public String toString()
+    {
+        return "Unit{" +
+                "unitName='" + unitName + '\'' +
+                ", unitType='" + unitType + '\'' +
+                ", specialization='" + specialization + '\'' +
+                ", price=" + price +
+                ", armor=" + armor +
+                ", health=" + health +
+                ", sightRange=" + sightRange +
+                ", unseenRange=" + unseenRange +
+                ", speed=" + speed +
+                ", weight=" + weight +
+                ", abilities='" + abilities + '\'' +
+                '}';
+    }
 
 }
 
