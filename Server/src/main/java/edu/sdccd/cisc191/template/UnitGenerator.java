@@ -54,7 +54,7 @@ public class UnitGenerator {
             else
             {
                 // Default to a basic Unit if category not recognized
-                return new Unit(unitName, unitType, specialization, price, armor, health, sightRange, unseenRange, speed, weight, abilities);
+                return new BasicUnit(unitName, unitType, specialization, price, armor, health, sightRange, unseenRange, speed, weight, abilities);
             }
     }
 
