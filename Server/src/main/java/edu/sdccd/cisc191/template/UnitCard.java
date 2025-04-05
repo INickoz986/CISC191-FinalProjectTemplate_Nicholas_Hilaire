@@ -11,6 +11,7 @@ import javafx.scene.layout.VBox;
  * "How to Use BoxLayout"  https://docs.oracle.com/javase/tutorial/uiswing/layout/box.html
  */
 
+// TODO (Module 5): Add Button controls to select or compare units in GUI
 public class UnitCard extends VBox
 {
     private Label unitNameLabel;
@@ -19,6 +20,7 @@ public class UnitCard extends VBox
     private Label statsLabel;
     private Label abilitiesLabel;
 
+    // TODO (Module 5): Move layout setup into a separate initializeUI() method for clarity
     public UnitCard()
     {
         super(5); // spacing between each specific unit stat
@@ -38,14 +40,15 @@ public class UnitCard extends VBox
         getChildren().addAll(unitNameLabel, unitTypeLabel, specializationLabel, statsLabel, abilitiesLabel);
     }
 
-        // Generates the Strings to label the data types from Unit class to display on applicaiton.
-        public void setUnit(Unit unit)
-        {
-            unitNameLabel.setText(unit.getUnitName());
-            unitTypeLabel.setText("Type: " + unit.getUnitType());
-            specializationLabel.setText("Spec: " + unit.getSpecialization());
-            statsLabel.setText("Price: " + unit.getPrice() + " | Armor: " + unit.getArmor() +
-                    " | Health: " + unit.getHealth());
-            abilitiesLabel.setText("Abilities: " + unit.getAbilities());
-        }
+    // TODO (Module 6): Load unit details from file asynchronously if not in memory
+    // Generates the Strings to label the data types from Unit class to display on applicaiton.
+    public void setUnit(Unit unit)
+    {
+        unitNameLabel.setText(unit.getUnitName());
+        unitTypeLabel.setText("Type: " + unit.getUnitType());
+        specializationLabel.setText("Spec: " + unit.getSpecialization());
+        statsLabel.setText("Price: " + unit.getPrice() + " | Armor: " + unit.getArmor() +
+                " | Health: " + unit.getHealth());
+        abilitiesLabel.setText("Abilities: " + unit.getAbilities());
+    }
 }

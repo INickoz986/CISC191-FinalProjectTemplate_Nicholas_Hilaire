@@ -21,13 +21,15 @@ public class UnitStatsLoader
     {
         List<Unit> units = new ArrayList<>();
 
+        // TODO (Module 5): Run file loading on a background thread to avoid freezing JavaFX UI
         File file = new File(path);
         // Try to locate the file in the given path or in src/main/resources/
         if (!file.exists())
         {
+            // TODO (Module 6): Use ClassLoader.getResourceAsStream for better portability
             file = new File("C:\\Users\\Nicko\\IdeaProjects\\CISC191-FinalProjectTemplate\\Server\\src\\main\\resources" + path);
 
-        // If file is not found will ensure the correct path is used.
+            // If file is not found will ensure the correct path is used.
         }
         if (!file.exists())
         {
@@ -58,18 +60,18 @@ public class UnitStatsLoader
                     stats[i] = stats[i].trim();
                 }
 
-                    //Uses the methods from UnitGenerator that creates an Unit object
-                    try
-                    {
-                        Unit unit = UnitGenerator.createUnit(stats);
-                        units.add(unit);
-                    }
+                //Uses the methods from UnitGenerator that creates an Unit object
+                try
+                {
+                    Unit unit = UnitGenerator.createUnit(stats);
+                    units.add(unit);
+                }
 
-                        catch (NumberFormatException e)
-                        {
-                            System.err.println("Error parsing stats: " + line);
-                            e.printStackTrace();
-                        }
+                catch (NumberFormatException e)
+                {
+                    System.err.println("Error parsing stats: " + line);
+                    e.printStackTrace();
+                }
             }
         }
 

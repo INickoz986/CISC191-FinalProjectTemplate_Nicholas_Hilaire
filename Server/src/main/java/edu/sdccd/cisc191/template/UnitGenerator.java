@@ -13,6 +13,7 @@ package edu.sdccd.cisc191.template;
 
 public class UnitGenerator {
 
+    // TODO (Module 1): Use arrays to validate stats length before parsing
     public static Unit createUnit(String[] stats)
     {
         // Loops through all the lines in the CSV file and removes extra lines from strings.
@@ -35,51 +36,52 @@ public class UnitGenerator {
         String abilities = stats.length > 10 ? stats[10] : ""; //Lists its abilities
         int extra = parseIntSafe(stats, 11, 0); //List the Extra stats that are associated  with its unit type
 
-            // Based on the unit type (category), create the appropriate unit object.
-            if (unitType.equalsIgnoreCase("Tank"))
-            {
-                return new Tank(unitName, unitType, specialization, price, armor, health, sightRange, unseenRange, speed, weight, abilities, extra);
-            }
+        // Based on the unit type (category), create the appropriate unit object.
+        if (unitType.equalsIgnoreCase("Tank"))
+        {
+            return new Tank(unitName, unitType, specialization, price, armor, health, sightRange, unseenRange, speed, weight, abilities, extra);
+        }
 
-            else if (unitType.equalsIgnoreCase("Fighter"))
-            {
-                return new Fighter(unitName, unitType, specialization, price, armor, health, sightRange, unseenRange, speed, weight, abilities, extra);
-            }
+        else if (unitType.equalsIgnoreCase("Fighter"))
+        {
+            return new Fighter(unitName, unitType, specialization, price, armor, health, sightRange, unseenRange, speed, weight, abilities, extra);
+        }
 
-            else if (unitType.equalsIgnoreCase("Infantry"))
-            {
-                return new InfantryUnit(unitName, unitType, specialization, price, armor, health, sightRange, unseenRange, speed, weight, abilities, extra);
-            }
+        else if (unitType.equalsIgnoreCase("Infantry"))
+        {
+            return new InfantryUnit(unitName, unitType, specialization, price, armor, health, sightRange, unseenRange, speed, weight, abilities, extra);
+        }
 
-            else
-            {
-                // Default to a basic Unit if category not recognized
-                return new Unit(unitName, unitType, specialization, price, armor, health, sightRange, unseenRange, speed, weight, abilities);
-            }
+        else
+        {
+            // Default to a basic Unit if category not recognized
+            return new Unit(unitName, unitType, specialization, price, armor, health, sightRange, unseenRange, speed, weight, abilities);
+        }
     }
 
-            // Helper method to space an integer safely
-            private static int parseIntSafe(String[] stats, int index, int defaultValue)
-            {
-                if (stats.length > index && !stats[index].isEmpty()) {
-                    try {
-                        return Integer.parseInt(stats[index]);
-                    } catch (NumberFormatException e) {
-                        System.err.println("Failed to parse integer at index " + index + ": " + stats[index]);
-                    }
-                }
-                return defaultValue;
+    // Helper method to space an integer safely
+    private static int parseIntSafe(String[] stats, int index, int defaultValue)
+    {
+        if (stats.length > index && !stats[index].isEmpty()) {
+            try {
+                return Integer.parseInt(stats[index]);
+            } catch (NumberFormatException e) {
+                System.err.println("Failed to parse integer at index " + index + ": " + stats[index]);
             }
+        }
+        return defaultValue;
+    }
 
-            // Helper method to space a double safely
-            private static double parseDoubleSafe(String[] stats, int index, double defaultValue) {
-                if (stats.length > index && !stats[index].isEmpty()) {
-                    try {
-                        return Double.parseDouble(stats[index]);
-                    } catch (NumberFormatException e) {
-                        System.err.println("Failed to parse double at index " + index + ": " + stats[index]);
-                    }
-                }
-                return defaultValue;
+    // Helper method to space a double safely
+    private static double parseDoubleSafe(String[] stats, int index, double defaultValue) {
+        if (stats.length > index && !stats[index].isEmpty()) {
+            try {
+                return Double.parseDouble(stats[index]);
+            } catch (NumberFormatException e) {
+                System.err.println("Failed to parse double at index " + index + ": " + stats[index]);
             }
+        }
+        return defaultValue;
+    }
+    // TODO (Module 6): Implement saveGeneratedUnits(List<Unit> units, String path) using I/O streams
 }

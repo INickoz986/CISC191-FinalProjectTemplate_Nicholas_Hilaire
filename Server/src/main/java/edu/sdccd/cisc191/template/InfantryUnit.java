@@ -7,11 +7,13 @@ package edu.sdccd.cisc191.template;
  * References: "Bro code: Java: Inheritance" https://www.youtube.com/watch?v=Zs342ePFvRI
  */
 
+// TODO (Module 3): Consider making InfantryUnit abstract for shared infantry logic
 // Infantry class inherits the methods of Unit Class.
 public class InfantryUnit extends Unit
 {
     private int manpower;
 
+    // TODO (Module 6): Add a method to read manpower values via I/O streams
     //Constructor to Initialize the private objects in infantryUnit and Unit class.
     public InfantryUnit(String unitName, String unitType, String specialization, int price, int armor,
                         int health, int sightRange, double unseenRange, int speed,
@@ -26,16 +28,16 @@ public class InfantryUnit extends Unit
 
     // Returns the value that is in the CSV file as extra stat.
     public int getManpower()
-        {
-            return manpower;
-        }
+    {
+        return manpower;
+    }
 
-            // Method created to change ExtraStat title in CSV to manpower and return that corresponding value
-            @Override
-            public String toString()
-            {
-                return super.toString() + "manpower= " + manpower;
-            }
+    // Method created to change ExtraStat title in CSV to manpower and return that corresponding value
+    @Override
+    public String toString()
+    {
+        return super.toString() + "manpower= " + manpower;
+    }
 
 
 }
