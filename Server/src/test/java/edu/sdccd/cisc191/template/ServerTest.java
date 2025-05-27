@@ -10,16 +10,7 @@ package edu.sdccd.cisc191.template;
  */
 
 import org.junit.jupiter.api.Test;
-import javafx.application.Application;
-import javafx.geometry.Insets;
-import javafx.scene.Scene;
-import javafx.scene.control.ComboBox;
-import javafx.scene.control.Label;
-import javafx.scene.layout.BorderPane;
-import javafx.scene.layout.HBox;
-import javafx.scene.layout.VBox;
-import javafx.stage.Stage;
-import javafx.util.StringConverter;
+
 
 import java.util.*;
 
@@ -39,9 +30,9 @@ public class ServerTest
         Unit fighter = new Fighter("Test Fighter", "Fighter", "Air", 200, 30, 150, 400, 1.75, 300, 4000, "Test Abilities", 120);
         Unit infantry = new InfantryUnit("Test Infantry", "Infantry", "Ground", 50, 10, 100, 500, 1.0, 15, 1000, "Test Abilities", 30);
 
-        assertEquals(true, tank instanceof Unit, "Tanks inherents from Unit Class");
-        assertEquals(true, fighter instanceof Unit, "Fighter inherents from Unit Class");
-        assertEquals(true, infantry instanceof Unit, "Infantry inherents from Unit Class");
+        assertInstanceOf(Unit.class, tank, "Tanks inherents from Unit Class");
+        assertInstanceOf(Unit.class, fighter, "Fighter inherents from Unit Class");
+        assertInstanceOf(Unit.class, infantry, "Infantry inherents from Unit Class");
 
     }
 

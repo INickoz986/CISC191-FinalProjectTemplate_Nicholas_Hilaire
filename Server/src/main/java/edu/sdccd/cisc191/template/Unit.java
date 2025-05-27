@@ -17,6 +17,8 @@ public class Unit
     private int armor;
     private int health;
     private int sightRange;
+
+    //TODO change unseenRange to a float for memory efficiency
     private double unseenRange;
     private int speed;
     private int weight;
@@ -48,57 +50,32 @@ public class Unit
             return unitName;
         }
 
-        public void setUnitName(String unitName)
-        {
-            this.unitName = unitName;
-        }
-
         public String getUnitType()
         {
             return unitType;
         }
 
-        public void setUnitType(String unitType)
-        {
-            this.unitType = unitType;
-        }
 
         public String getSpecialization()
         {
             return specialization;
         }
 
-        public void setSpecialization(String specialization)
-        {
-            this.specialization = specialization;
-        }
 
         public int getPrice()
         {
             return price;
         }
 
-        public void setPrice(int price)
-        {
-            this.price = price;
-        }
 
         public int getArmor()
         {
             return armor;
         }
-        public void setArmor(int armor)
-        {
-            this.armor = armor;
-        }
 
         public int getHealth()
         {
             return health;
-        }
-        public void setHealth(int health)
-        {
-            this.health = health;
         }
 
         public int getSightRange()
@@ -106,45 +83,24 @@ public class Unit
             return sightRange;
         }
 
-        public void setSightRange(int sightRange)
-        {
-            this.sightRange = sightRange;
-        }
-
         public double getUnseenRange()
         {
             return unseenRange;
-        }
-        public void setUnseenRange(double unseenRange)
-        {
-            this.unseenRange = unseenRange;
         }
 
         public int getSpeed()
         {
             return speed;
         }
-        public void setSpeed(int speed)
-        {
-            this.speed = speed;
-        }
 
         public int getWeight()
         {
             return weight;
         }
-        public void setWeight(int weight)
-        {
-            this.weight = weight;
-        }
 
         public String getAbilities()
         {
             return abilities;
-        }
-        public void setAbilities(String abilities)
-        {
-            this.abilities = abilities;
         }
 
 

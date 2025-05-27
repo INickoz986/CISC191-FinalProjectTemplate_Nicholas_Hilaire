@@ -16,14 +16,16 @@ import javafx.scene.layout.VBox;
  * "How to Use BoxLayout"  https://docs.oracle.com/javase/tutorial/uiswing/layout/box.html
  */
 
+//TODO Place this class in client w javafx mvn dependencies; Ui code in server is not ideal
+
 public class UnitCard extends VBox
 {
-    private ImageView unitImageView;
-    private Label unitNameLabel;
-    private Label unitTypeLabel;
-    private Label specializationLabel;
-    private Label statsLabel;
-    private Label abilitiesLabel;
+    private final ImageView unitImageView;
+    private final Label unitNameLabel;
+    private final Label unitTypeLabel;
+    private final Label specializationLabel;
+    private final Label statsLabel;
+    private final Label abilitiesLabel;
 
     public UnitCard()
     {

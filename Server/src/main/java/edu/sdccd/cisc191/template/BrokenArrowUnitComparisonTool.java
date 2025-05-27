@@ -31,6 +31,7 @@ import java.util.stream.Collectors;
  * "How to Use BoxLayout"  https://docs.oracle.com/javase/tutorial/uiswing/layout/box.html
  */
 
+//TODO move this class to Client because having the UI in the server is not ideal
 public class BrokenArrowUnitComparisonTool extends Application
 {
 
@@ -50,7 +51,9 @@ public class BrokenArrowUnitComparisonTool extends Application
     public void start(Stage primaryStage)
     {
         //Loads units from CSV Change the unit arrow to List<Unit>
-        List<Unit> unitList = UnitStatsLoader.loadUnits("C:\\Users\\Nicko\\IdeaProjects\\CISC191-FinalProjectTemplate\\Server\\src\\main\\resources\\Broken Arrow Unit Stats.csv");
+        //add path variable for ease
+        String path = "C:\\Users\\Nicko\\IdeaProjects\\CISC191-FinalProjectTemplate\\Server\\src\\main\\resources\\Broken Arrow Unit Stats.csv";
+        List<Unit> unitList = UnitStatsLoader.loadUnits(path);
         System.out.println("Units loaded: " + unitList.size());
 
         Map<String, List<Unit>> unitsByType = unitList.stream()
@@ -68,6 +71,9 @@ public class BrokenArrowUnitComparisonTool extends Application
             rightComboBox.getItems().setAll(filtered);
         });
 
+        /**
+         * TODO add a javafx search bar and use a stream to search for the name of units for efficiency when many more units are added
+         */
 
 
         //Module 7 Used Hashmap for quick lookups between my Units and the images they are associated too.
