@@ -10,7 +10,7 @@ package edu.sdccd.cisc191.template;
 // Tank class inherits the methods of Unit Class.
 public class Tank extends Unit
 {
-    private int RearArmor;
+    private int RearArmor; // TODO: Add a comment explaining that RearArmor is a specific stat related to the tank's rear protection.
 
     //Constructor to Initialize the private objects in tank and Unit class.
     public Tank(String unitName, String unitType, String specialization, int price, int armor,
@@ -27,13 +27,13 @@ public class Tank extends Unit
         // Returns the value that is in the CSV file as extra stat.
         public int getRearArmor()
         {
-            return RearArmor;
+            return RearArmor; // TODO: Consider adding validation to check if RearArmor is a negative number, as that might not be valid.
         }
 
             // Method created to change ExtraStat title in CSV to RearArmor and return that corresponding value
             @Override
             public String toString()
-            {
+            {  // TODO: Add a space after "RearArmor" for better formatting: "RearArmor: " + RearArmor
                 return super.toString() + "RearArmor: " + RearArmor;
             }
 

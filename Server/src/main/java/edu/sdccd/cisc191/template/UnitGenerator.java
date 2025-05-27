@@ -60,7 +60,7 @@ public class UnitGenerator {
 
             // Helper method to space an integer safely
             private static int parseIntSafe(String[] stats, int index, int defaultValue)
-            {
+            { // TODO: Add more descriptive logging to track which field failed to parse. Consider using a logger instead of System.err for better production quality.
                 if (stats.length > index && !stats[index].isEmpty()) {
                     try {
                         return Integer.parseInt(stats[index]);
@@ -73,6 +73,7 @@ public class UnitGenerator {
 
             // Helper method to space a double safely
             private static double parseDoubleSafe(String[] stats, int index, double defaultValue) {
+                // TODO: Similar to the parseIntSafe method, consider using a logger for this instead of System.err to improve maintainability and clarity.
                 if (stats.length > index && !stats[index].isEmpty()) {
                     try {
                         return Double.parseDouble(stats[index]);

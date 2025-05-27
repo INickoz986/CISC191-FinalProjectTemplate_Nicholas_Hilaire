@@ -28,7 +28,7 @@ public class Unit
                 int health, int sightRange, double unseenRange, int speed,
                 int weight, String abilities)
 
-    {
+    { // TODO: Add comments to explain what each parameter represents for beginners.
         this.unitName = unitName;
         this.unitType = unitType;
         this.specialization = specialization;
@@ -50,7 +50,7 @@ public class Unit
 
         public void setUnitName(String unitName)
         {
-            this.unitName = unitName;
+            this.unitName = unitName; // TODO: Consider adding validation to ensure the unit name is not empty.
         }
 
         public String getUnitType()
@@ -60,7 +60,7 @@ public class Unit
 
         public void setUnitType(String unitType)
         {
-            this.unitType = unitType;
+            this.unitType = unitType; // TODO: Consider adding validation for valid unit types (e.g., non-null, non-empty).
         }
 
         public String getSpecialization()
@@ -70,7 +70,7 @@ public class Unit
 
         public void setSpecialization(String specialization)
         {
-            this.specialization = specialization;
+            this.specialization = specialization; // TODO: Maybe validate that specialization is one of the expected values (e.g., not null).
         }
 
         public int getPrice()
@@ -89,7 +89,7 @@ public class Unit
         }
         public void setArmor(int armor)
         {
-            this.armor = armor;
+            this.armor = armor; // TODO: Add a validation to check if armor value is valid (e.g., non-negative).
         }
 
         public int getHealth()
@@ -98,7 +98,7 @@ public class Unit
         }
         public void setHealth(int health)
         {
-            this.health = health;
+            this.health = health; // TODO: Validate if health is a reasonable value (e.g., not negative).
         }
 
         public int getSightRange()
@@ -108,7 +108,7 @@ public class Unit
 
         public void setSightRange(int sightRange)
         {
-            this.sightRange = sightRange;
+            this.sightRange = sightRange; // TODO: Consider adding checks for sightRange to ensure it's a reasonable value.
         }
 
         public double getUnseenRange()
@@ -135,7 +135,7 @@ public class Unit
         }
         public void setWeight(int weight)
         {
-            this.weight = weight;
+            this.weight = weight; // TODO: Validate if weight is a valid, non-negative value.
         }
 
         public String getAbilities()
@@ -144,14 +144,14 @@ public class Unit
         }
         public void setAbilities(String abilities)
         {
-            this.abilities = abilities;
+            this.abilities = abilities; // TODO: Maybe validate that abilities are not null or empty.
         }
 
 
         // Takes the previous get Methods and translates the data into the specific unit stat.
             @Override
             public String toString()
-            {
+            {  // TODO: Make sure the string formatting is clear and consistent. Consider adding spaces for readability.
                 return "Unit{" +
                         "unitName='" + unitName + '\'' +
                         ", unitType='" + unitType + '\'' +
@@ -165,7 +165,7 @@ public class Unit
                         ", weight=" + weight +
                         ", abilities='" + abilities + '\'' +
                         '}';
-            }
+            } // TODO: Could also consider using String.format() for more control over formatting.
 
 }
 
