@@ -35,27 +35,20 @@ public class UnitGenerator {
         String abilities = stats.length > 10 ? stats[10] : ""; //Lists its abilities
         int extra = parseIntSafe(stats, 11, 0); //List the Extra stats that are associated  with its unit type
 
+
+        //TODO use switch statement for handling each unit type
+        return switch (unitType) {
+            case "Tank" ->
+                    new Tank(unitName, unitType, specialization, price, armor, health, sightRange, unseenRange, speed, weight, abilities, extra);
+            case "Fighter" ->
+                    new Fighter(unitName, unitType, specialization, price, armor, health, sightRange, unseenRange, speed, weight, abilities, extra);
+            case "Infantry" ->
+                    new InfantryUnit(unitName, unitType, specialization, price, armor, health, sightRange, unseenRange, speed, weight, abilities, extra);
+            default ->
+                    new Unit(unitName, unitType, specialization, price, armor, health, sightRange, unseenRange, speed, weight, abilities);
+        };
+
             // Based on the unit type (category), create the appropriate unit object.
-            if (unitType.equalsIgnoreCase("Tank"))
-            {
-                return new Tank(unitName, unitType, specialization, price, armor, health, sightRange, unseenRange, speed, weight, abilities, extra);
-            }
-
-            else if (unitType.equalsIgnoreCase("Fighter"))
-            {
-                return new Fighter(unitName, unitType, specialization, price, armor, health, sightRange, unseenRange, speed, weight, abilities, extra);
-            }
-
-            else if (unitType.equalsIgnoreCase("Infantry"))
-            {
-                return new InfantryUnit(unitName, unitType, specialization, price, armor, health, sightRange, unseenRange, speed, weight, abilities, extra);
-            }
-
-            else
-            {
-                // Default to a basic Unit if category not recognized
-                return new Unit(unitName, unitType, specialization, price, armor, health, sightRange, unseenRange, speed, weight, abilities);
-            }
     }
 
             // Helper method to space an integer safely
