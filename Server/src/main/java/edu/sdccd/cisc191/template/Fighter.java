@@ -30,6 +30,15 @@ public class Fighter extends Unit
         {
             return fuel;
         }
+    // TODO: Add validation to ensure fuel is not negative.
+    // TODO: Override equals() and hashCode() for better collection support and comparisons.
+
+
+    // TODO: Implement actual calculation based on fuel and other stats.
+
+        public int calculateRange() {
+        return fuel * 10;
+        }
 
             // Method created to change ExtraStat title in CSV to fuel and return that corresponding value
             @Override

@@ -10,6 +10,10 @@ package edu.sdccd.cisc191.template;
 
 public class Unit
 {
+
+    // TODO (10. Searching and Sorting): Implement Comparable<Unit> to allow sorting units by price or another attribute.
+    // TODO (3. OOP): Add a static method to search for a Unit by name in a list of units.
+
     private String unitName;
     private String unitType;
     private String specialization;
@@ -147,8 +151,30 @@ public class Unit
             this.abilities = abilities;
         }
 
+    /**
+     * Compare this Unit to another by price.
+     * Useful for sorting units.
+     */
+    public int compareByPrice(Unit other) {
+        return Integer.compare(this.price, other.price);
+    }
 
-        // Takes the previous get Methods and translates the data into the specific unit stat.
+    /**
+     * Static method to search for a unit by name in a list.
+     * Returns the first matching unit or null if not found.
+     */
+    public static Unit searchByName(java.util.List<Unit> units, String name) {
+        for (Unit unit : units) {
+            if (unit.getUnitName().equalsIgnoreCase(name)) {
+                return unit;
+            }
+        }
+        return null;
+    }
+
+
+
+    // Takes the previous get Methods and translates the data into the specific unit stat.
             @Override
             public String toString()
             {

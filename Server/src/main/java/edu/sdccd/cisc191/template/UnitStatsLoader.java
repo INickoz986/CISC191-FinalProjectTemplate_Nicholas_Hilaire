@@ -21,6 +21,13 @@ public class UnitStatsLoader
     {
         List<Unit> units = new ArrayList<>();
 
+        // TODO (6. I/O Streams): Support reading from InputStreams (e.g., resources inside JARs) for more flexible file loading.
+        // TODO (6. I/O Streams): Refactor to use try-with-resources for File and BufferedReader to ensure all resources are closed properly.
+
+        // TODO (8. Generics and Collections): Add generic error handling to skip malformed CSV lines and continue loading valid units.
+        // TODO (8. Generics and Collections): Allow filtering or mapping units as they are loaded (e.g., using Java Streams for transformation).
+        // TODO (8. Generics and Collections): Add an overloaded method that accepts a Collection<String> for unit data, improving testability and flexibility.
+
         File file = new File(path);
         // Try to locate the file in the given path or in src/main/resources/
         if (!file.exists())

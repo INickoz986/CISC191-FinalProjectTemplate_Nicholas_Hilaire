@@ -29,6 +29,10 @@ public class Tank extends Unit
         {
             return RearArmor;
         }
+        // getRearArmor is not used
+
+    // TODO (3. OOP): Add a setter for RearArmor with validation to follow encapsulation principles.
+    // TODO (3. OOP): Override equals() and hashCode() for proper object comparison and collection use.
 
             // Method created to change ExtraStat title in CSV to RearArmor and return that corresponding value
             @Override

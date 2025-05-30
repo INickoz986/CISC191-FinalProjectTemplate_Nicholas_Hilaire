@@ -73,6 +73,9 @@ public class UnitGenerator {
 
             // Helper method to space a double safely
             private static double parseDoubleSafe(String[] stats, int index, double defaultValue) {
+
+                // TODO (6. I/O Streams): Log parsing errors to a file using IO Streams for better error tracking.
+
                 if (stats.length > index && !stats[index].isEmpty()) {
                     try {
                         return Double.parseDouble(stats[index]);
