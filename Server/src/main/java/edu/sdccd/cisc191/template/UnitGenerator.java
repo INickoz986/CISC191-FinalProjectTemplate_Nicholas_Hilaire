@@ -33,8 +33,10 @@ public class UnitGenerator {
         int speed = parseIntSafe(stats, 8, 0);  //Displays the unit's speed
         int weight = parseIntSafe(stats, 9, 0);  //Displays its weights
         String abilities = stats.length > 10 ? stats[10] : ""; //Lists its abilities
+        // TODO: Rename "extra" to something more descriptive like "additionalStat" or "unitBonus" if known
         int extra = parseIntSafe(stats, 11, 0); //List the Extra stats that are associated  with its unit type
 
+        // TODO: Consider using a switch statement
             // Based on the unit type (category), create the appropriate unit object.
             if (unitType.equalsIgnoreCase("Tank"))
             {

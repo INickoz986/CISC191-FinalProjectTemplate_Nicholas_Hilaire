@@ -43,62 +43,39 @@ public class Unit
     }
 
         //Setter so that the code get the data in the CSV file and translate it to code
+        //TODO: Remove any used getters and setters
         public String getUnitName()
         {
             return unitName;
         }
 
-        public void setUnitName(String unitName)
-        {
-            this.unitName = unitName;
-        }
 
         public String getUnitType()
         {
             return unitType;
         }
 
-        public void setUnitType(String unitType)
-        {
-            this.unitType = unitType;
-        }
 
         public String getSpecialization()
         {
             return specialization;
         }
 
-        public void setSpecialization(String specialization)
-        {
-            this.specialization = specialization;
-        }
 
         public int getPrice()
         {
             return price;
         }
 
-        public void setPrice(int price)
-        {
-            this.price = price;
-        }
 
         public int getArmor()
         {
             return armor;
         }
-        public void setArmor(int armor)
-        {
-            this.armor = armor;
-        }
 
         public int getHealth()
         {
             return health;
-        }
-        public void setHealth(int health)
-        {
-            this.health = health;
         }
 
         public int getSightRange()
@@ -149,6 +126,7 @@ public class Unit
 
 
         // Takes the previous get Methods and translates the data into the specific unit stat.
+        // TODO: Consider customizing toString() for UI readability (e.g., just return unitName or summary)
             @Override
             public String toString()
             {

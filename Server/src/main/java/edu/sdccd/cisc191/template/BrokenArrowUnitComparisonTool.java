@@ -23,7 +23,7 @@ import java.util.Map;
 import java.util.function.Function;
 import java.util.stream.Collectors;
 
-
+//TODO: Since this class is a GUI it should be moved to Client
 /**
  * Author Nicholas Hilaire
  *
@@ -46,9 +46,11 @@ public class BrokenArrowUnitComparisonTool extends Application
     private List<Unit> unitList;
     private Map<String, Image> unitImageMap;
 
+    // TODO: Avoid the UI code in `start()` from getting too large. Split into methods: loadUnits(), setupUI(), setupEventHandlers()
     @Override
     public void start(Stage primaryStage)
     {
+        // TODO: Avoid hardcoding file paths like this. Instead, load the CSV via resources (e.g., getResourceAsStream).
         //Loads units from CSV Change the unit arrow to List<Unit>
         List<Unit> unitList = UnitStatsLoader.loadUnits("C:\\Users\\Nicko\\IdeaProjects\\CISC191-FinalProjectTemplate\\Server\\src\\main\\resources\\Broken Arrow Unit Stats.csv");
         System.out.println("Units loaded: " + unitList.size());
@@ -67,7 +69,6 @@ public class BrokenArrowUnitComparisonTool extends Application
             leftComboBox.getItems().setAll(filtered);
             rightComboBox.getItems().setAll(filtered);
         });
-
 
 
         //Module 7 Used Hashmap for quick lookups between my Units and the images they are associated too.
@@ -104,6 +105,7 @@ public class BrokenArrowUnitComparisonTool extends Application
 
         // Use a StringConverter so that only the unit's name appears in the drop-down
         StringConverter<Unit> converter = new StringConverter<>() {
+            // TODO: The toString and fromString method are unused — consider removing or implementing
             @Override
             public String toString(Unit unit)
             {
@@ -167,6 +169,7 @@ public class BrokenArrowUnitComparisonTool extends Application
     // Creates a panel (VBox) containing labels for unit details
     private VBox createUnitDetailPanel()
     {
+        // TODO: Consider using a `GridPane` instead of `VBox` for better control over layout alignment
         VBox panel = new VBox(10);
         panel.setPadding(new Insets(10));
         panel.setStyle("-fx-border-color: gray; -fx-border-width: 2; -fx-background-color: #f9f9f9;");
