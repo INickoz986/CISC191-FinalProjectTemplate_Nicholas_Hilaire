@@ -25,14 +25,14 @@ public class UnitStatsLoader
         // Try to locate the file in the given path or in src/main/resources/
         if (!file.exists())
         {
-            file = new File("C:\\Users\\Nicko\\IdeaProjects\\CISC191-FinalProjectTemplate\\Server\\src\\main\\resources" + path);
+            file = new File("src/main/resources/" + path);  // Adjust fallback to be relative
 
         // If file is not found will ensure the correct path is used.
         }
         if (!file.exists())
         {
             System.err.println("File not found: " + path);
-            return units;
+            return units; // TODO: Optionally throw exception or return Optional for better error handling.
         }
 
         /* Allows the code to gather data in a buffer and then read text in from a character input stream that takes in the file object that is declared
@@ -44,7 +44,7 @@ public class UnitStatsLoader
             // Read and discard the header row
             if ((line = br.readLine()) == null)
             {
-                return units;
+                return units; // TODO: Log warning if file is empty
             }
 
             // while loop reads the file one line at a time until no more lines occur.
@@ -82,7 +82,7 @@ public class UnitStatsLoader
         // Handles any errors and if an error occurs will return an empty string.
         catch (IOException e)
         {
-            throw new RuntimeException(e);
+            throw new RuntimeException("Failed to read unit stats file: " + file.getPath(), e);
         }
 
         return units;

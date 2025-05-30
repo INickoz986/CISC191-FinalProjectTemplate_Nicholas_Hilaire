@@ -15,15 +15,15 @@ import javafx.scene.layout.VBox;
  * "Java: CSV File Easy Read/Write" https://stackoverflow.com/questions/14226830/java-csv-file-easy-read-write
  * "How to Use BoxLayout"  https://docs.oracle.com/javase/tutorial/uiswing/layout/box.html
  */
-
+//TODO: Consider moving this class to Client because it also contains UI elements
 public class UnitCard extends VBox
 {
-    private ImageView unitImageView;
-    private Label unitNameLabel;
-    private Label unitTypeLabel;
-    private Label specializationLabel;
-    private Label statsLabel;
-    private Label abilitiesLabel;
+    private final ImageView unitImageView;
+    private final Label unitNameLabel;
+    private final Label unitTypeLabel;
+    private final Label specializationLabel;
+    private final Label statsLabel;
+    private final Label abilitiesLabel;
 
     public UnitCard()
     {

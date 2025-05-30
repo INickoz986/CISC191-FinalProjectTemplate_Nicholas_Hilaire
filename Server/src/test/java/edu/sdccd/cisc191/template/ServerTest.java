@@ -30,6 +30,8 @@ import java.util.stream.Collectors;
 
 public class ServerTest
 {
+    // TODO: Replace hardcoded path with getResource() for portability
+    private static final String TEST_CSV_PATH = "Broken Arrow Unit Stats.csv";
 
     // Test if specific unit type is inherenting from the Unit superClass
     @Test
@@ -39,9 +41,9 @@ public class ServerTest
         Unit fighter = new Fighter("Test Fighter", "Fighter", "Air", 200, 30, 150, 400, 1.75, 300, 4000, "Test Abilities", 120);
         Unit infantry = new InfantryUnit("Test Infantry", "Infantry", "Ground", 50, 10, 100, 500, 1.0, 15, 1000, "Test Abilities", 30);
 
-        assertEquals(true, tank instanceof Unit, "Tanks inherents from Unit Class");
-        assertEquals(true, fighter instanceof Unit, "Fighter inherents from Unit Class");
-        assertEquals(true, infantry instanceof Unit, "Infantry inherents from Unit Class");
+        assertInstanceOf(Unit.class, tank, "Tanks inherents from Unit Class");
+        assertInstanceOf(Unit.class, fighter, "Fighter inherents from Unit Class");
+        assertInstanceOf(Unit.class, infantry, "Infantry inherents from Unit Class");
 
     }
 
@@ -49,8 +51,8 @@ public class ServerTest
     @Test
     public void TestIOStream()
     {
-        List<Unit> units = UnitStatsLoader.loadUnits("C:\\Users\\Nicko\\IdeaProjects\\CISC191-FinalProjectTemplate\\Server\\src\\main\\resources\\Broken Arrow Unit Stats.csv");
-        assertFalse(units.isEmpty());
+        List<Unit> units = UnitStatsLoader.loadUnits(getResourcePath(TEST_CSV_PATH));
+        assertFalse(units.isEmpty(), "Unit list from CSV should not be empty");
     }
 
     // Test if units are being created in the UnitGenerator class
@@ -61,14 +63,17 @@ public class ServerTest
             assertNotNull(units, "The units list should be created and not null");
             assertTrue(units.isEmpty(), "The units list should be empty upon initialization");
             Unit testUnit = new Unit("Test Unit", "Infantry", "Test Specialization", 100, 10, 100, 500, 1.5, 20, 2000, "Test Abilities");
+            units.add(testUnit);
 
+            assertEquals(1, units.size(), "Unit list should contain one element after addition");
+            assertEquals("Test Unit", units.get(0).getUnitName(), "Unit name should match");
         }
 
     // Test Hashmap to ensure the units correspond with the correct images.
     @Test
     void testUnitHashMap()
     {
-        List<Unit> units = UnitStatsLoader.loadUnits("C:\\Users\\Nicko\\IdeaProjects\\CISC191-FinalProjectTemplate\\Server\\src\\main\\resources\\Broken Arrow Unit Stats.csv");
+        List<Unit> units = UnitStatsLoader.loadUnits(getResourcePath(TEST_CSV_PATH));
        Map<String, Unit> map = new HashMap<>();
        for (Unit unit : units)
        {
@@ -85,7 +90,7 @@ public class ServerTest
     @Test
     void testSearchingbyType()
     {
-        List<Unit> units = UnitStatsLoader.loadUnits("C:\\Users\\Nicko\\IdeaProjects\\CISC191-FinalProjectTemplate\\Server\\src\\main\\resources\\Broken Arrow Unit Stats.csv");
+        List<Unit> units = UnitStatsLoader.loadUnits(getResourcePath(TEST_CSV_PATH));
         Map<String, List<Unit>> byType = units.stream().collect(Collectors.groupingBy(Unit::getUnitType));
 
         for (Unit unit : units)
@@ -98,7 +103,7 @@ public class ServerTest
     //Ensure Stream APL will filter by the unit's type
     @Test
     public void testFilterSorting() {
-        List<Unit> units = UnitStatsLoader.loadUnits("C:\\Users\\Nicko\\IdeaProjects\\CISC191-FinalProjectTemplate\\Server\\src\\main\\resources\\Broken Arrow Unit Stats.csv");
+        List<Unit> units = UnitStatsLoader.loadUnits(getResourcePath(TEST_CSV_PATH));
         String type = units.get(0).getUnitType();
         List<Unit> result = units.stream()
                 .filter(u -> type.equals(u.getUnitType()))
@@ -106,5 +111,10 @@ public class ServerTest
                 .collect(Collectors.toList());
         assertFalse(result.isEmpty(), "Filtered & sorted list should not be empty");
     }
-
+    /**
+     * Utility method to get a resource path for CSV loading.
+     */
+    private String getResourcePath(String fileName) {
+        return Objects.requireNonNull(getClass().getClassLoader().getResource(fileName)).getPath();
+    }
 }
