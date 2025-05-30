@@ -49,6 +49,13 @@ public class BrokenArrowUnitComparisonTool extends Application
     @Override
     public void start(Stage primaryStage)
     {
+
+        // TODO (5. JavaFX): Refactor UI component creation into separate methods for better readability and modularity.
+        // TODO (5. JavaFX): Add tooltips to ComboBoxes and labels to improve user guidance.
+        // TODO (5. JavaFX): Implement dark/light theme switching for improved accessibility.
+        // TODO (5. JavaFX): Add keyboard navigation and accessibility features for users with disabilities.
+        // TODO (5. JavaFX): Animate panel transitions when switching units for a smoother user experience.
+
         //Loads units from CSV Change the unit arrow to List<Unit>
         List<Unit> unitList = UnitStatsLoader.loadUnits("C:\\Users\\Nicko\\IdeaProjects\\CISC191-FinalProjectTemplate\\Server\\src\\main\\resources\\Broken Arrow Unit Stats.csv");
         System.out.println("Units loaded: " + unitList.size());

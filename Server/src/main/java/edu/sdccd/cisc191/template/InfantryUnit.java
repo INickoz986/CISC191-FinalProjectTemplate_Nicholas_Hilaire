@@ -29,6 +29,10 @@ public class InfantryUnit extends Unit
         {
             return manpower;
         }
+        // getManpower is not used
+
+    // TODO (3. OOP): Add setter method for manpower with validation to follow encapsulation principles.
+    // TODO (3. OOP): Override equals() and hashCode() for proper comparison and usage in collections.
 
             // Method created to change ExtraStat title in CSV to manpower and return that corresponding value
             @Override
