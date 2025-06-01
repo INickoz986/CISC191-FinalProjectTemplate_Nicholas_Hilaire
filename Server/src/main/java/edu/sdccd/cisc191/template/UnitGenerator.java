@@ -1,25 +1,14 @@
 package edu.sdccd.cisc191.template;
 
-/**
- * Author Nicholas Hilaire
- *
- * References:
- * - "Get Substring from String in Java" by Tom Hombergs
- * - Java read from URL stream (StackOverflow)
- * - Read a File from Resources Directory
- * - "Java: CSV File Easy Read/Write"
- * - "How to correctly use parseInt in Java"
- */
-
 public class UnitGenerator {
 
     public static Unit createUnit(String[] stats) {
-        // clean up strings
+        // TODO: Clean up input strings
         for (int i = 0; i < stats.length; i++) {
             stats[i] = stats[i].replaceAll("\"", "").trim();
         }
 
-        // pull values from array
+        // TODO: Extract unit info from stats array
         String unitType = stats.length > 0 ? stats[0] : "";
         String unitName = stats.length > 1 ? stats[1] : "";
         String specialization = stats.length > 2 ? stats[2] : "";
@@ -33,7 +22,7 @@ public class UnitGenerator {
         String abilities = stats.length > 10 ? stats[10] : "";
         int extra = parseIntSafe(stats, 11, 0);
 
-        // return a specific unit type based on the string
+        // TODO: Create unit object based on unitType
         if (unitType.equalsIgnoreCase("Tank")) {
             return new Tank(unitName, unitType, specialization, price, armor, health, sightRange, unseenRange, speed, weight, abilities, extra);
         } else if (unitType.equalsIgnoreCase("Fighter")) {
@@ -41,12 +30,12 @@ public class UnitGenerator {
         } else if (unitType.equalsIgnoreCase("Infantry")) {
             return new InfantryUnit(unitName, unitType, specialization, price, armor, health, sightRange, unseenRange, speed, weight, abilities, extra);
         } else {
-            // fallback if type isn’t recognized
+            // TODO: Return default Unit if unitType not recognized
             return new Unit(unitName, unitType, specialization, price, armor, health, sightRange, unseenRange, speed, weight, abilities);
         }
     }
 
-    // safe way to get an int from array
+    // TODO: Safely parse int from stats
     private static int parseIntSafe(String[] stats, int index, int defaultValue) {
         if (stats.length > index && !stats[index].isEmpty()) {
             try {
@@ -58,7 +47,7 @@ public class UnitGenerator {
         return defaultValue;
     }
 
-    // safe way to get a double from array
+    // TODO: Safely parse double from stats
     private static double parseDoubleSafe(String[] stats, int index, double defaultValue) {
         if (stats.length > index && !stats[index].isEmpty()) {
             try {
