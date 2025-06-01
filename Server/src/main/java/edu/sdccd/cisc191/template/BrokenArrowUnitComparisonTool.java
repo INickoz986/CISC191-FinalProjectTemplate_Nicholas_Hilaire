@@ -1,76 +1,43 @@
-
-package edu.sdccd.cisc191.template;
-
-import javafx.application.Application;
-import javafx.collections.FXCollections;
-import javafx.geometry.Insets;
-import javafx.scene.Scene;
-import javafx.scene.control.ChoiceBox;
-import javafx.scene.control.ComboBox;
-import javafx.scene.control.Label;
-import javafx.scene.image.Image;
-import javafx.scene.image.ImageView;
-import javafx.scene.layout.BorderPane;
-import javafx.scene.layout.HBox;
-import javafx.scene.layout.VBox;
-import javafx.stage.Stage;
-import javafx.util.StringConverter;
-
-import java.io.InputStream;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-import java.util.function.Function;
-import java.util.stream.Collectors;
-
-
-/**
- * Author Nicholas Hilaire
- *
- * Java GUI Tutorial - Make a GUI in 13 Minutes #99 "https://www.youtube.com/watch?v=5o3fMLPY7qY
- * "How to Use BoxLayout"  https://docs.oracle.com/javase/tutorial/uiswing/layout/box.html
- */
-
 public class BrokenArrowUnitComparisonTool extends Application
 {
-
-    // ComboBoxes for selecting units on the left and right panels
+    //TODO: used for selecting units, could consider naming or commenting for clarity
     private ComboBox<Unit> leftComboBox;
     private ComboBox<Unit> rightComboBox;
 
-    // Panels that display unit details
+    //TODO: shows details for the selected units
     private VBox leftPanel;
     private VBox rightPanel;
 
-    // List of units loaded from CSV
+    //TODO: stores loaded units and their images
     private List<Unit> unitList;
     private Map<String, Image> unitImageMap;
 
     @Override
     public void start(Stage primaryStage)
     {
-        //Loads units from CSV Change the unit arrow to List<Unit>
+        //TODO: path is absolute — might not work everywhere
         List<Unit> unitList = UnitStatsLoader.loadUnits("C:\\Users\\Nicko\\IdeaProjects\\CISC191-FinalProjectTemplate\\Server\\src\\main\\resources\\Broken Arrow Unit Stats.csv");
+
+        //TODO: shows how many were loaded, mostly for debugging
         System.out.println("Units loaded: " + unitList.size());
 
+        //TODO: groups units by type
         Map<String, List<Unit>> unitsByType = unitList.stream()
                 .collect(Collectors.groupingBy(Unit::getUnitType));
 
-        //Crates a UI to allow search by Unit type
+        //TODO: sets up dropdown to filter units by type
         ChoiceBox<String> typeSearch = new ChoiceBox<>(
                 FXCollections.observableArrayList(unitsByType.keySet()));
 
+        //TODO: updates both unit lists when type changes
         typeSearch.getSelectionModel().selectedItemProperty()
-        .addListener((observable, oldValue, newValue) ->
-        {
+        .addListener((observable, oldValue, newValue) -> {
             List<Unit> filtered = unitsByType.getOrDefault(newValue, unitList);
             leftComboBox.getItems().setAll(filtered);
             rightComboBox.getItems().setAll(filtered);
         });
 
-
-
-        //Module 7 Used Hashmap for quick lookups between my Units and the images they are associated too.
+        //TODO: image file names matched to unit names
         Map<String, String> imageFileName = Map.of(
                 "Marine Raiders CQC",    "marine_raiders_cqc.png",
                 "Chernye Berety",        "chernye_berety.png",
@@ -80,38 +47,34 @@ public class BrokenArrowUnitComparisonTool extends Application
                 "Su-57",                 "su57.png"
         );
 
-        //Loads images into javaFX memory
+        //TODO: loads all the images into memory
         unitImageMap = new HashMap<>();
         for (Map.Entry<String, String> entry : imageFileName.entrySet()) {
-            String displayName = entry.getKey();
-            String fileName = entry.getValue();
-            InputStream is = getClass().getResourceAsStream("/images/" + fileName);
+            InputStream is = getClass().getResourceAsStream("/images/" + entry.getValue());
             if (is == null) {
-                System.err.println("Missing image resource: " + fileName);
+                System.err.println("Missing image resource: " + entry.getValue());
                 continue;
             }
             Image img = new Image(is);
-            unitImageMap.put(displayName, img);
+            unitImageMap.put(entry.getKey(), img);
         }
 
-
-        // Create ComboBoxes and populate them with units by Switching to List<Unit> now it can feed easier into the ComboBoxes
+        //TODO: fills combo boxes with units
         leftComboBox = new ComboBox<>();
         rightComboBox = new ComboBox<>();
         leftComboBox.getItems().addAll(unitList);
         rightComboBox.getItems().addAll(unitList);
 
-
-        // Use a StringConverter so that only the unit's name appears in the drop-down
+        //TODO: makes the dropdown only show unit name
         StringConverter<Unit> converter = new StringConverter<>() {
             @Override
-            public String toString(Unit unit)
-            {
+            public String toString(Unit unit) {
                 return unit == null ? "" : unit.getUnitName();
             }
+
             @Override
-            public Unit fromString(String string)
-            {
+            public Unit fromString(String string) {
+                //TODO: not used in this context
                 return null;
             }
         };
@@ -119,34 +82,31 @@ public class BrokenArrowUnitComparisonTool extends Application
         leftComboBox.setConverter(converter);
         rightComboBox.setConverter(converter);
 
-        // Create detail panels for each side with images and labels
+        //TODO: sets up the two detail views
         leftPanel = createUnitDetailPanel();
         rightPanel = createUnitDetailPanel();
 
-        // When a selection changes, update the corresponding panel
+        //TODO: updates panel when a unit is picked
         leftComboBox.setOnAction(e -> showUnit(leftComboBox.getValue(), leftPanel));
         rightComboBox.setOnAction(e -> showUnit(rightComboBox.getValue(), rightPanel));
 
-
-        // Top controls: display the ComboBoxes in an HBox added Type UI feature to use search tool in Module 9
+        //TODO: holds the search box and both selectors
         HBox topControls = new HBox(10,
                 new Label("Type:"), typeSearch,
                 new Label("Left Unit:"), leftComboBox,
                 new Label("Right Unit:"), rightComboBox);
         topControls.setPadding(new Insets(10));
 
-        // Container for the two detail panels side by side
+        //TODO: holds the left and right detail panels
         HBox panelsContainer = new HBox(20, leftPanel, rightPanel);
         panelsContainer.setPadding(new Insets(10));
 
-        // Main UI using a BorderPane
+        //TODO: main layout pane
         BorderPane root = new BorderPane();
         root.setTop(topControls);
         root.setCenter(panelsContainer);
 
-
-
-        // Sets the UI to display unit as cards shapes in side by side panel.
+        //TODO: sets the main window and shows it
         primaryStage.setTitle("Unit Comparison");
         primaryStage.setScene(new Scene(root, 800, 600));
         primaryStage.show();
@@ -156,36 +116,36 @@ public class BrokenArrowUnitComparisonTool extends Application
     {
         if (unit == null) return;
 
-        // 1) Update the images
+        //TODO: finds the image view and sets its image
         ImageView iv = (ImageView) panel.lookup("#unitImageView");
         iv.setImage(unitImageMap.get(unit.getUnitName()));
 
-        // 2) Update borderpane labels
+        //TODO: updates all the unit stats on the panel
         updatePanel(panel, unit);
     }
 
-    // Creates a panel (VBox) containing labels for unit details
     private VBox createUnitDetailPanel()
     {
+        //TODO: makes a panel with padding and border
         VBox panel = new VBox(10);
         panel.setPadding(new Insets(10));
         panel.setStyle("-fx-border-color: gray; -fx-border-width: 2; -fx-background-color: #f9f9f9;");
 
+        //TODO: sets up the image
         ImageView iv = new ImageView();
         iv.setId("unitImageView");
         iv.setFitWidth(300);
         iv.setFitHeight(260);
         iv.setPreserveRatio(true);
 
-        
-        // Create labels for each stat
+        //TODO: creates labels for the stats
         Label nameLabel = new Label("Name: ");
         Label typeLabel = new Label("Type: ");
         Label specializationLabel = new Label("Specialization: ");
         Label statsLabel = new Label("Stats: ");
         Label abilitiesLabel = new Label("Abilities: ");
 
-        // Use a helper object to store these components for easy updating
+        //TODO: packs all the labels into one object to update them later
         PanelComponents comps = new PanelComponents(nameLabel, typeLabel, specializationLabel, statsLabel, abilitiesLabel);
         panel.setUserData(comps);
 
@@ -193,11 +153,12 @@ public class BrokenArrowUnitComparisonTool extends Application
         return panel;
     }
 
-    // Updates the provided panel with data from the selected unit
     private void updatePanel(VBox panel, Unit unit)
     {
         if (unit == null) return;
         PanelComponents comps = (PanelComponents) panel.getUserData();
+
+        //TODO: fills in all the label text with info from the unit
         comps.nameLabel.setText("Name: " + unit.getUnitName());
         comps.typeLabel.setText("Type: " + unit.getUnitType());
         comps.specializationLabel.setText("Specialization: " + unit.getSpecialization());
@@ -207,8 +168,7 @@ public class BrokenArrowUnitComparisonTool extends Application
         comps.abilitiesLabel.setText("Abilities: " + unit.getAbilities());
     }
 
-
-    // Helper class to hold UI components in each panel
+    //TODO: stores all the labels for one side so they're easy to update
     private static class PanelComponents
     {
         Label nameLabel;
