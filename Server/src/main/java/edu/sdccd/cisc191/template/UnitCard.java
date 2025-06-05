@@ -17,6 +17,7 @@ import javafx.scene.layout.VBox;
  */
 
 public class UnitCard extends VBox
+    // TODO: Putting these stats in Client would be recommended, if possible
 {
     private ImageView unitImageView;
     private Label unitNameLabel;
