@@ -11,7 +11,7 @@ package edu.sdccd.cisc191.template;
 public class InfantryUnit extends Unit
 {
     private int manpower;
-
+// TODO: Add simple JavaDoc or comment above constructor to explain what each parameter means for beginners
     //Constructor to Initialize the private objects in infantryUnit and Unit class.
     public InfantryUnit(String unitName, String unitType, String specialization, int price, int armor,
                         int health, int sightRange, double unseenRange, int speed,
