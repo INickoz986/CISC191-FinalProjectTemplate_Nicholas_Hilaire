@@ -12,7 +12,7 @@ package edu.sdccd.cisc191.template;
 public class Fighter extends Unit
 {
     private int fuel;
-
+// TODO: Consider adding Javadoc comments for the constructor to explain each parameter briefly if needed
     //Constructor to Initialize the private objects in infantryUnit and Unit class.
     public Fighter(String unitName, String unitType, String specialization, int price, int armor,
                    int health, int sightRange, double unseenRange, int speed,
