@@ -15,12 +15,13 @@ public class UnitGenerator {
 
     public static Unit createUnit(String[] stats)
     {
+        // TODO: You could clean each string in the array by removing quotes and trimming spaces
         // Loops through all the lines in the CSV file and removes extra lines from strings.
         for (int i = 0; i < stats.length; i++)
         {
             stats[i] = stats[i].replaceAll("\"", "").trim();
         }
-
+// TODO: Pull out values from the CSV data with basic checks for each field
         // Gets the units information from the CSV file scanning each data inputs legenth and assigning it to a specific stat
         String unitType = stats.length > 0 ? stats[0] : "";  //Displays the Unit's type
         String unitName = stats.length > 1 ? stats[1] : "";  //Displays the Unit's Name
@@ -57,7 +58,7 @@ public class UnitGenerator {
                 return new Unit(unitName, unitType, specialization, price, armor, health, sightRange, unseenRange, speed, weight, abilities);
             }
     }
-
+            // TODO: Try to parse an integer and handle errors if the value is not valid
             // Helper method to space an integer safely
             private static int parseIntSafe(String[] stats, int index, int defaultValue)
             {
@@ -70,7 +71,7 @@ public class UnitGenerator {
                 }
                 return defaultValue;
             }
-
+            // TODO: Try to parse a double and handle errors if the value is not valid
             // Helper method to space a double safely
             private static double parseDoubleSafe(String[] stats, int index, double defaultValue) {
                 if (stats.length > index && !stats[index].isEmpty()) {
