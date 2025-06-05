@@ -20,6 +20,7 @@ public class Server {
     private BufferedReader in;
 
     public void start(int port) throws Exception {
+        // TODO: Allow server to handle multiple connections in a loop with threads
         serverSocket = new ServerSocket(port);
         clientSocket = serverSocket.accept();
         out = new PrintWriter(clientSocket.getOutputStream(), true);
@@ -46,6 +47,7 @@ public class Server {
             server.start(4444);
             server.stop();
         } catch(Exception e) {
+            //TODO: Improve error handling and consider retry logic
             e.printStackTrace();
         }
     }

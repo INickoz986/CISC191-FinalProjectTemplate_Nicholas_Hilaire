@@ -22,6 +22,7 @@ public class Client {
     private BufferedReader in;
 
     public void startConnection(String ip, int port) throws IOException {
+        //TODO: Consider validating IP and port inputs for safety
         clientSocket = new Socket(ip, port);
         out = new PrintWriter(clientSocket.getOutputStream(), true);
         in = new BufferedReader(new InputStreamReader(clientSocket.getInputStream()));
@@ -44,6 +45,7 @@ public class Client {
             System.out.println(client.sendRequest().toString());
             client.stopConnection();
         } catch(Exception e) {
+            //TODO: Consider logging exception
             e.printStackTrace();
         }
     }

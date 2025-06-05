@@ -19,6 +19,7 @@ public class CustomerRequest {
     public CustomerRequest(Integer id) {
         this.id = id;
     }
+    // TODO: Validate 'id' is not null and within expected range
 
     @Override
     public String toString() {
