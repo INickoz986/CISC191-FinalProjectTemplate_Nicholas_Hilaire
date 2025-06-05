@@ -22,11 +22,12 @@ public class UnitStatsLoader
         List<Unit> units = new ArrayList<>();
 
         File file = new File(path);
+        // TODO: If the file doesn't exist at the given path, try loading it from a default folder
         // Try to locate the file in the given path or in src/main/resources/
         if (!file.exists())
         {
             file = new File("C:\\Users\\Nicko\\IdeaProjects\\CISC191-FinalProjectTemplate\\Server\\src\\main\\resources" + path);
-
+        // TODO: Show error message and return empty list if file is still not found
         // If file is not found will ensure the correct path is used.
         }
         if (!file.exists())
@@ -78,7 +79,7 @@ public class UnitStatsLoader
         {
             throw new RuntimeException(e);
         }
-
+        // TODO: Show error if there’s a problem reading the file
         // Handles any errors and if an error occurs will return an empty string.
         catch (IOException e)
         {
