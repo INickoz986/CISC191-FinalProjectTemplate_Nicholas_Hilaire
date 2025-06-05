@@ -51,6 +51,7 @@ public class BrokenArrowUnitComparisonTool extends Application
     {
         //Loads units from CSV Change the unit arrow to List<Unit>
         List<Unit> unitList = UnitStatsLoader.loadUnits("C:\\Users\\Nicko\\IdeaProjects\\CISC191-FinalProjectTemplate\\Server\\src\\main\\resources\\Broken Arrow Unit Stats.csv");
+        // TODO: You can add a check to see if unitList is empty; print a warning if it is
         System.out.println("Units loaded: " + unitList.size());
 
         Map<String, List<Unit>> unitsByType = unitList.stream()
@@ -66,6 +67,7 @@ public class BrokenArrowUnitComparisonTool extends Application
             List<Unit> filtered = unitsByType.getOrDefault(newValue, unitList);
             leftComboBox.getItems().setAll(filtered);
             rightComboBox.getItems().setAll(filtered);
+            // TODO: Maybe clear selected values when filtering to avoid mismatch
         });
 
 
@@ -113,6 +115,7 @@ public class BrokenArrowUnitComparisonTool extends Application
             public Unit fromString(String string)
             {
                 return null;
+                // TODO: Explain why fromString returns null in a comment, if needed
             }
         };
 
@@ -159,7 +162,7 @@ public class BrokenArrowUnitComparisonTool extends Application
         // 1) Update the images
         ImageView iv = (ImageView) panel.lookup("#unitImageView");
         iv.setImage(unitImageMap.get(unit.getUnitName()));
-
+// TODO: Check if image is null and maybe set a default or placeholder image
         // 2) Update borderpane labels
         updatePanel(panel, unit);
     }
@@ -176,7 +179,7 @@ public class BrokenArrowUnitComparisonTool extends Application
         iv.setFitWidth(300);
         iv.setFitHeight(260);
         iv.setPreserveRatio(true);
-
+// TODO: You can add tooltips or hover text to explain stats to users if you want to in the future
         
         // Create labels for each stat
         Label nameLabel = new Label("Name: ");
